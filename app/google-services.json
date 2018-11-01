@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "483206643362",
+    "firebase_url": "https://groupthink-20350.firebaseio.com",
+    "project_id": "groupthink-20350",
+    "storage_bucket": "groupthink-20350.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:483206643362:android:6e673d62f74c5c85",
+        "android_client_info": {
+          "package_name": "com.example.alishammout.groupthink"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "483206643362-lp2rjgmgr0medr0bflgukc49kj9jrine.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.alishammout.groupthink",
+            "certificate_hash": "8caa7f19528590050ec68fd10f8aa351c682aa3b"
+          }
+        },
+        {
+          "client_id": "483206643362-26k8smb7ivs279sgk9hbf2kdn16frq9f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2crSGKJ184yxcttDWa0HSLkBswIobodM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "483206643362-26k8smb7ivs279sgk9hbf2kdn16frq9f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
