@@ -29,7 +29,8 @@
         <activity android:name=".AddPeople" />
         <activity android:name=".MeetingLayout" />
         <activity android:name=".MeetingInformation" />
-        <activity android:name=".AgendaCreation"></activity>
+        <activity android:name=".AgendaCreation" />
+        <activity android:name=".SplashScreen"></activity>
     </application>
 
 </manifest>
