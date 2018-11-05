@@ -6,4 +6,82 @@
     android:layout_height="match_parent"
     tools:context=".AddGroup">
 
+    <EditText
+        android:id="@+id/addPeople"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="78dp"
+        android:ems="10"
+        android:gravity="center_horizontal"
+        android:hint="Add People To Group..."
+        android:inputType="textPersonName"
+        android:textStyle="italic" />
+
+    <ScrollView
+        android:id="@+id/scrollPeopleAdded"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="140dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/addedPerson1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="center_vertical|center_horizontal"
+                android:inputType="textPersonName"
+                android:text="Person Name" />
+
+            <EditText
+                android:id="@+id/addedPerson2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="center_vertical|center_horizontal"
+                android:inputType="textPersonName"
+                android:text="Person Name" />
+
+            <EditText
+                android:id="@+id/addedPerson3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="center_vertical|center_horizontal"
+                android:inputType="textPersonName"
+                android:text="Person Name" />
+        </LinearLayout>
+    </ScrollView>
+
+    <EditText
+        android:id="@+id/addGroupName"
+        android:layout_width="279dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:gravity="center_horizontal"
+        android:hint="Type New Group Name..."
+        android:inputType="textPersonName"
+        android:textStyle="bold|italic" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="38dp"
+        android:layout_height="37dp"
+        android:layout_alignTop="@+id/addPeople"
+        android:layout_marginTop="1dp"
+        android:layout_toEndOf="@+id/addPeople"
+        android:text="+"
+        android:layout_toRightOf="@+id/addPeople" />
+
 </RelativeLayout>

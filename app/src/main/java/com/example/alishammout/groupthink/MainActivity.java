@@ -32,7 +32,8 @@ public class MainActivity extends Activity implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-       /* //starts the splash screen before going to main
+       /* STILL WORKING ON IT - ALI
+        starts the splash screen before going to main
         long startTime = System.currentTimeMillis();
         long endTime = 3000;
         if ((System.currentTimeMillis() - startTime) < endTime) {
