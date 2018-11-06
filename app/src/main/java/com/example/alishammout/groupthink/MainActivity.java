@@ -30,18 +30,9 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
-
-       /* STILL WORKING ON IT - ALI
-        starts the splash screen before going to main
-        long startTime = System.currentTimeMillis();
-        long endTime = 3000;
-        if ((System.currentTimeMillis() - startTime) < endTime) {
-            Intent splashIntent = new Intent(MainActivity.this, SplashScreen.class);
-            startActivity(splashIntent);
-        }*/
-
-
         setContentView(R.layout.activity_main);
 
         //Authentication functionality initialization
