@@ -17,7 +17,6 @@
         <activity android:name=".MainActivity">
 
         </activity>
-        <activity android:name=".LoginScreen" />
         <activity android:name=".GroupOverview" />
         <activity android:name=".AddGroup" />
         <activity android:name=".MeetingSelection" />
