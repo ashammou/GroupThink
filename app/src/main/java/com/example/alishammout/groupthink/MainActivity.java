@@ -31,7 +31,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
     private Button loginButton;
 
     
-
+//testing Marius commit
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
