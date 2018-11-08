@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -25,6 +27,8 @@ public class MainActivity extends Activity implements View.OnClickListener{
     private FirebaseAuth.AuthStateListener mAuthListener;
     FirebaseDatabase database;
     DatabaseReference myRef;
+    private EditText enterUsername, enterPassword;
+    private Button loginButton;
 
 
 
@@ -34,6 +38,12 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        enterUsername = findViewById(R.id.login);
+        enterPassword = findViewById(R.id.password);
+        loginButton = findViewById(R.id.buttonLogin);
+
+        loginButton.setOnClickListener(this);
 
         //Authentication functionality initialization
         mAuth = FirebaseAuth.getInstance();
