@@ -62,24 +62,32 @@
         android:layout_marginBottom="7dp"
         android:src="@android:drawable/ic_menu_add" />
 
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="237dp"
-        android:layout_height="276dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="185dp"
-        android:layout_marginEnd="-236dp"
-        android:layout_toStartOf="@+id/editText2"
-        tools:itemCount="5"
-        tools:listitem="@layout/recycler_view_item" />
-
     <View
         android:id="@+id/divider2"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_alignBottom="@+id/doneButton"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
         android:layout_marginBottom="-7dp"
         android:background="?android:attr/listDivider" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="197dp">
+
+        <EditText
+            android:id="@+id/editText11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Person Name" />
+    </ScrollView>
 
 </RelativeLayout>
