@@ -29,7 +29,6 @@ public class MainActivity extends Activity implements View.OnClickListener{
     DatabaseReference myRef;
     private EditText enterUsername, enterPassword;
     private Button loginButton;
-    private int fakeint4test;
 
     
 
