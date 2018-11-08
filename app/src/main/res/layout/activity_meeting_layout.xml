@@ -16,7 +16,7 @@
         android:text="Meeting Name" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/imageButtonAgenda"
         android:layout_width="44dp"
         android:layout_height="35dp"
         android:layout_alignParentTop="true"
@@ -31,7 +31,7 @@
         android:id="@+id/editButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageButton"
+        android:layout_alignTop="@+id/imageButtonAgenda"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="-3dp"
         android:layout_marginEnd="9dp"
