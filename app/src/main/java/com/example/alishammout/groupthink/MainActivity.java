@@ -28,7 +28,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
     FirebaseDatabase database;
     DatabaseReference myRef;
     private EditText enterUsername, enterPassword;
-    private Button loginButton;
+    private Button loginButton, accountB;
 
     
 //testing Marius commit
@@ -43,8 +43,10 @@ public class MainActivity extends Activity implements View.OnClickListener{
         enterUsername = findViewById(R.id.login);
         enterPassword = findViewById(R.id.password);
         loginButton = findViewById(R.id.buttonLogin);
+        accountB = findViewById(R.id.accountButton);
 
         loginButton.setOnClickListener(this);
+        accountB.setOnClickListener(this);
 
         //Authentication functionality initialization
         mAuth = FirebaseAuth.getInstance();
@@ -119,8 +121,9 @@ public class MainActivity extends Activity implements View.OnClickListener{
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            //takes user to homepage if sign in is successful
-                            Toast.makeText(MainActivity.this, "Sign in Success", Toast.LENGTH_SHORT).show();
+                            //Takes to group page
+                            startActivity(new Intent(MainActivity.this, GroupOverview.class));
+
 
 
                         } else {
@@ -144,6 +147,25 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
+
+        String loginS;
+        String passwordS;
+        passwordS = enterPassword.getText().toString();
+        loginS = enterUsername.getText().toString();
+
+
+
+        if (v == loginButton) {
+
+            signIn(loginS, passwordS);
+
+
+        }
+
+        else if (v == accountB) {
+
+            createAccount(loginS, passwordS);
+        }
 
     }
 }
