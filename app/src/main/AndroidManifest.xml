@@ -25,6 +25,7 @@
         <activity android:name=".MeetingLayout" />
         <activity android:name=".MeetingInformation" />
         <activity android:name=".AgendaCreation" />
+        <activity android:name=".UserClass" />
         <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
