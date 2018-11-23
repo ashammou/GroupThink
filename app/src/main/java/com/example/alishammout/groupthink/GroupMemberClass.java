@@ -3,37 +3,41 @@ package com.example.alishammout.groupthink;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import java.util.*;
 
 
 public class GroupMemberClass extends Activity{
 
-    public UserClass[] usersinGroupL;
-    public MeetingClass[] meetingsinGroupL;
+    public List<UserClass> usersinGroupL = new ArrayList<>();
+    public List<MeetingClass> meetingsinGroupL = new ArrayList<>();
 
     public GroupMemberClass() {
 
-    }
-
-    public GroupMemberClass(UserClass[] usersinGroup, MeetingClass[] meetingsinGroup) {
-
-        usersinGroupL = usersinGroup;
-        meetingsinGroupL = meetingsinGroup;
+        usersinGroupL = new ArrayList<>();
+        meetingsinGroupL = new ArrayList<>();
 
     }
 
-    public UserClass[] getUsersinGroup() {
+    public GroupMemberClass(List<UserClass> usersinGroup, List<MeetingClass> meetingsinGroup) {
+
+        usersinGroupL = new ArrayList<>(usersinGroup);
+        meetingsinGroupL = new ArrayList<>(meetingsinGroup);
+
+    }
+
+    public List<UserClass> getUsersinGroup() {
         return usersinGroupL;
     }
 
-    public MeetingClass[] getMeetingsinGroup() {
+    public List <MeetingClass> getMeetingsinGroup() {
         return meetingsinGroupL;
     }
 
-    public void setUsersinGroup(UserClass[] usersinGroup) {
+    public void setUsersinGroup(List<UserClass> usersinGroup) {
         usersinGroupL = usersinGroup;
     }
 
-    public void setMeetingsinGroup(MeetingClass[] meetingsinGroup) {
+    public void setMeetingsinGroup(List<MeetingClass> meetingsinGroup) {
         meetingsinGroupL = meetingsinGroup;
     }
 

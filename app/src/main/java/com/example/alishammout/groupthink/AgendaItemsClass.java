@@ -4,12 +4,19 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
+import java.util.*;
 
 public class AgendaItemsClass extends Activity{
 
     public String descriptionL, timeL, notesL, speakerL;
 
     public AgendaItemsClass() {
+
+        descriptionL = "";
+        timeL = "";
+        notesL = "";
+        speakerL = "";
+
 
     }
 
