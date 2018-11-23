@@ -11,7 +11,7 @@ public class GroupMemberClass extends Activity{
     MeetingClass[] meetingsinGroupL;
 
     public GroupMemberClass() {
-        
+
     }
 
     public GroupMemberClass(UserClass[] usersinGroup, MeetingClass[] meetingsinGroup) {
