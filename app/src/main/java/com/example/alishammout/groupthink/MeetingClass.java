@@ -7,9 +7,9 @@ import android.widget.Toast;
 
 public class MeetingClass {
 
-    String starttimeL, locationL;
-    AgendaItemsClass[] agendaL;
-    UserClass[] meetingattendeesL;
+    public String starttimeL, locationL;
+    public AgendaItemsClass[] agendaL;
+    public UserClass[] meetingattendeesL;
 
 
     public MeetingClass(){
@@ -26,6 +26,43 @@ public class MeetingClass {
 
 
 
+    }
+
+
+    public String getStarttimeL(){
+        return starttimeL;
+
+    }
+
+    public String getLocationL() {
+        return locationL;
+    }
+
+    public AgendaItemsClass[] getAgendaL(){
+        return agendaL;
+    }
+
+    public UserClass[] getMeetingattendeesL() {
+        return meetingattendeesL;
+    }
+
+
+    public void setStarttimeL(String starttime){
+        starttimeL = starttime;
+
+    }
+
+    public void setLocationL(String location) {
+        locationL = location;
+
+    }
+
+    public void setAgendaL(AgendaItemsClass[] agenda) {
+        agendaL = agenda;
+    }
+
+    public void setMeetingattendeesL(UserClass[] meetingattendees) {
+        meetingattendeesL = meetingattendees;
     }
 
 

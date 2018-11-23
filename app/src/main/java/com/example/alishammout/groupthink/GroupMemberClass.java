@@ -7,8 +7,8 @@ import android.os.Bundle;
 
 public class GroupMemberClass extends Activity{
 
-    UserClass[] usersinGroupL;
-    MeetingClass[] meetingsinGroupL;
+    public UserClass[] usersinGroupL;
+    public MeetingClass[] meetingsinGroupL;
 
     public GroupMemberClass() {
 
@@ -19,6 +19,22 @@ public class GroupMemberClass extends Activity{
         usersinGroupL = usersinGroup;
         meetingsinGroupL = meetingsinGroup;
 
+    }
+
+    public UserClass[] getUsersinGroup() {
+        return usersinGroupL;
+    }
+
+    public MeetingClass[] getMeetingsinGroup() {
+        return meetingsinGroupL;
+    }
+
+    public void setUsersinGroup(UserClass[] usersinGroup) {
+        usersinGroupL = usersinGroup;
+    }
+
+    public void setMeetingsinGroup(MeetingClass[] meetingsinGroup) {
+        meetingsinGroupL = meetingsinGroup;
     }
 
 

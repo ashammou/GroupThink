@@ -7,7 +7,7 @@ import android.widget.Toast;
 
 public class AgendaItemsClass extends Activity{
 
-    String descriptionL, timeL, notesL, speakerL;
+    public String descriptionL, timeL, notesL, speakerL;
 
     public AgendaItemsClass() {
 
@@ -23,7 +23,44 @@ public class AgendaItemsClass extends Activity{
 
     }
 
+    public String getDescriptionL(){
 
+        return descriptionL;
+
+    }
+
+    public String getTimeL() {
+        return timeL;
+
+    }
+
+    public String getNotesL(){
+        return notesL;
+    }
+
+    public String getSpeakerL(){
+        return speakerL;
+    }
+
+    public void setDescriptionL(String description) {
+        descriptionL = description;
+
+
+    }
+
+    public void setTimeL(String time){
+        timeL = time;
+
+    }
+
+    public void setNotesL(String notes) {
+        notesL = notes;
+    }
+
+    public void setSpeakerL(String speaker){
+        speakerL = speaker;
+
+    }
 
 
 }

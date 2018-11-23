@@ -9,19 +9,57 @@ import android.widget.Toast;
 public class UserClass extends Activity  {
 
 
-        String usernameL,passwordL;
-        String[] groupsInL;
+        public String usernameL,passwordL;
+        public GroupMemberClass[] groupsInL;
 
-public UserClass()  {
+        public UserClass()  {
+
+                usernameL = "";
+                passwordL = "";
+
+
+
+        }
+
+        public UserClass (String username,String password,GroupMemberClass[] groupsIn) {
+                usernameL=username;
+                passwordL= password;
+                groupsInL = groupsIn;
 
         }
 
-public UserClass (String username,String password,String[] groupsIn) {
-        usernameL=username;
-        passwordL= password;
-        groupsInL = groupsIn;
+
+        public String getUsernameL(){
+
+                return usernameL;
 
         }
+
+        public String getPasswordL(){
+                return passwordL;
+        }
+
+        public GroupMemberClass[] getGroupsInL() {
+                return groupsInL;
+        }
+
+        public void setUsername(String username){
+
+                usernameL = username;
+
+        }
+
+        public void setPasswordL(String password){
+                passwordL = password;
+        }
+
+        public void setGroupsInL(GroupMemberClass[] groupsIn) {
+                groupsInL = groupsIn;
+        }
+
+
+
+
 
 
 
