@@ -12,7 +12,7 @@ public class UserClass extends Activity  {
 
 
         public String usernameL,passwordL;
-        public List<GroupClass> groupsInL = new ArrayList<>();
+        public List<GroupMemberClass> groupsInL = new ArrayList<>();
 
         public UserClass()  {
 
@@ -24,7 +24,7 @@ public class UserClass extends Activity  {
 
         }
 
-        public UserClass (String username,String password,List<GroupClass> groupsIn) {
+        public UserClass (String username,String password,List<GroupMemberClass> groupsIn) {
                 usernameL=username;
                 passwordL= password;
                 groupsInL = new ArrayList<>(groupsIn);
@@ -42,7 +42,7 @@ public class UserClass extends Activity  {
                 return passwordL;
         }
 
-        public List<GroupClass> getGroupsInL() {
+        public List<GroupMemberClass> getGroupsInL() {
                 return groupsInL;
         }
 
@@ -56,7 +56,7 @@ public class UserClass extends Activity  {
                 passwordL = password;
         }
 
-        public void setGroupsInL(List<GroupClass> groupsIn) {
+        public void setGroupsInL(List<GroupMemberClass> groupsIn) {
                 groupsInL = new ArrayList<>(groupsIn);
         }
 
