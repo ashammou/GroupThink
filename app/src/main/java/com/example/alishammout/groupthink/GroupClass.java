@@ -7,19 +7,19 @@ import java.util.*;
 //comment
 
 
-public class GroupMemberClass extends Activity{
+public class GroupClass extends Activity{
 
     public List<UserClass> usersinGroupL;
     public List<MeetingClass> meetingsinGroupL;
 
-    public GroupMemberClass() {
+    public GroupClass() {
 
         usersinGroupL = new ArrayList<>();
         meetingsinGroupL = new ArrayList<>();
 
     }
 
-    public GroupMemberClass(List<UserClass> usersinGroup, List<MeetingClass> meetingsinGroup) {
+    public GroupClass(List<UserClass> usersinGroup, List<MeetingClass> meetingsinGroup) {
 
         usersinGroupL = new ArrayList<>(usersinGroup);
         meetingsinGroupL = new ArrayList<>(meetingsinGroup);
