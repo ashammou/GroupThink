@@ -41,23 +41,6 @@
                 android:inputType="textPersonName"
                 android:text="Person Name" />
 
-            <EditText
-                android:id="@+id/addedPerson2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:gravity="center_vertical|center_horizontal"
-                android:inputType="textPersonName"
-                android:text="Person Name" />
-
-            <EditText
-                android:id="@+id/addedPerson3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:gravity="center_vertical|center_horizontal"
-                android:inputType="textPersonName"
-                android:text="Person Name" />
         </LinearLayout>
     </ScrollView>
 
