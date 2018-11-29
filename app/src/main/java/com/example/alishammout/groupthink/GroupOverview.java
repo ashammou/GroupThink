@@ -11,4 +11,5 @@ public class GroupOverview extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group_overview);
     }
+
 }

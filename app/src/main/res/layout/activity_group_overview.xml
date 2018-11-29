@@ -28,16 +28,15 @@
 
     <ImageButton
         android:id="@+id/imageButton3"
-        android:layout_width="83dp"
-        android:layout_height="83dp"
-        android:layout_centerHorizontal="true"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginStart="151dp"
-        android:layout_marginLeft="151dp"
         android:layout_marginTop="80dp"
         android:layout_marginEnd="150dp"
         android:layout_marginRight="150dp"
@@ -67,29 +66,6 @@
                 android:inputType="textPersonName"
                 android:text="Group 1" />
 
-            <EditText
-                android:id="@+id/editText8"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Group 2" />
-
-            <EditText
-                android:id="@+id/editText9"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Group 3" />
-
-            <EditText
-                android:id="@+id/editText10"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Group 4" />
         </LinearLayout>
     </ScrollView>
 
