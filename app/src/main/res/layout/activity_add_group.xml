@@ -19,37 +19,15 @@
         android:inputType="textPersonName"
         android:textStyle="italic" />
 
-    <ScrollView
-        android:id="@+id/scrollPeopleAdded"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="140dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <EditText
-                android:id="@+id/addedPerson1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:gravity="center_vertical|center_horizontal"
-                android:inputType="textPersonName"
-                android:text="Person Name" />
-
-        </LinearLayout>
-    </ScrollView>
-
     <EditText
         android:id="@+id/addGroupName"
         android:layout_width="279dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
         android:layout_marginTop="20dp"
         android:ems="10"
         android:gravity="center_horizontal"
@@ -66,5 +44,26 @@
         android:layout_toEndOf="@+id/addPeople"
         android:text="+"
         android:layout_toRightOf="@+id/addPeople" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/addgRV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="140dp" />
+
+    <Button
+        android:id="@+id/doneButton"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:layout_alignBottom="@+id/addGroupName"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="3dp"
+        android:text="Done" />
 
 </RelativeLayout>

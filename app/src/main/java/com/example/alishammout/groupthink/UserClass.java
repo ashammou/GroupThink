@@ -19,7 +19,7 @@ public class UserClass extends Activity  {
 
 
         public String usernameL,passwordL;
-        public List<GroupClass> groupsInL = new ArrayList<>();
+        public ArrayList<GroupClass> groupsInL;
 
         FirebaseDatabase database;
         DatabaseReference myRef;
@@ -34,7 +34,7 @@ public class UserClass extends Activity  {
 
         }
 
-        public UserClass (String username,String password,List<GroupClass> groupsIn) {
+        public UserClass (String username,String password,ArrayList<GroupClass> groupsIn) {
                 usernameL=username;
                 passwordL= password;
                 groupsInL = new ArrayList<>(groupsIn);

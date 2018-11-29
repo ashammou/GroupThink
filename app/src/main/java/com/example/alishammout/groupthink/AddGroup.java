@@ -1,23 +1,25 @@
 package com.example.alishammout.groupthink;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ScrollView;
 
+import java.util.ArrayList;
+
 public class AddGroup extends Activity implements View.OnClickListener {
 
     private EditText addGroup;
     private EditText addPeople;
+    private Button addPersonB, doneButton;
+    private ArrayList<UserClass> addGUsers;
 
-    private EditText person1;
-    private EditText person2;
-    private EditText person3;
 
-    private Button addPersonB;
-    private ScrollView scrollBar;
 
 
     @Override
@@ -27,21 +29,41 @@ public class AddGroup extends Activity implements View.OnClickListener {
 
         addGroup = findViewById(R.id.addGroupName);
         addPeople = findViewById(R.id.addPeople);
-        person1 = findViewById(R.id.addedPerson1);
-        person2 = findViewById(R.id.addedPerson2);
-        person3 = findViewById(R.id.addedPerson3);
 
         addPersonB = findViewById(R.id.button2);
-        scrollBar = findViewById(R.id.scrollPeopleAdded);
 
         addPersonB.setOnClickListener(this);
+        doneButton = findViewById(R.id.doneButton);
+        doneButton.setOnClickListener(this);
 
 
 
     }
 
+    private void initaddGUsers() {
+
+        //Receive object data from firebase below are just a text
+
+        recyclerviewadapter();
+    }
+
+    private void recyclerviewadapter() {
+
+        RecyclerView recyclerView = findViewById(R.id.addgRV);
+        RecyclerViewAdapterAddGroup recyclerViewAdapterAddGroup = new RecyclerViewAdapterAddGroup(
+                addGUsers, this);
+        recyclerView.setAdapter(recyclerViewAdapterAddGroup);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+    }
+
     @Override
     public void onClick(View v) {
+
+        if (v == doneButton) {
+
+            startActivity(new Intent(AddGroup.this, GroupOverview.class));
+        }
 
     }
 }
