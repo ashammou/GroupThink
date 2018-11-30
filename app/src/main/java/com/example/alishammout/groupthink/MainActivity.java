@@ -96,12 +96,17 @@ public class MainActivity extends Activity implements View.OnClickListener{
     };
 
     //this method allows for the creation of a user account
-    public void createAccount(String email, String password) {
-        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this,
+    public void createAccount(final String email1, final String password1) {
+        mAuth.createUserWithEmailAndPassword(email1, password1).addOnCompleteListener(this,
                 new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+
+                            ArrayList<String> emptyGroupList = new ArrayList<>();
+                            UserClass newUser = new UserClass(email1, password1, emptyGroupList);
+
+
 
                             Toast.makeText(MainActivity.this, "Register Success",
                                     Toast.LENGTH_SHORT).show();
@@ -125,8 +130,6 @@ public class MainActivity extends Activity implements View.OnClickListener{
                             //Takes to group page
                             startActivity(new Intent(MainActivity.this, GroupOverview.class));
 
-
-
                         } else {
                             //Sign in was a failure and tells user
                             Toast.makeText(MainActivity.this, "Sign In Failure",
@@ -138,13 +141,6 @@ public class MainActivity extends Activity implements View.OnClickListener{
                     }
                 });
     }
-
-
-
-
-
-
-
 
     @Override
     public void onClick(View v) {
