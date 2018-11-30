@@ -18,7 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 public class UserClass extends Activity  {
 
 
-        public String usernameL,passwordL;
+        public String usernameL,passwordL, USERID;
         public ArrayList<String> groupsInL;
 
         FirebaseDatabase database;
@@ -26,6 +26,7 @@ public class UserClass extends Activity  {
 
         public UserClass()  {
 
+                USERID = "";
                 usernameL = "";
                 passwordL = "";
                 groupsInL = new ArrayList<>();
@@ -34,7 +35,8 @@ public class UserClass extends Activity  {
 
         }
 
-        public UserClass (String username,String password,ArrayList<String> groupsIn) {
+        public UserClass (String USERID,  String username,String password,ArrayList<String> groupsIn) {
+                this.USERID = USERID;
                 usernameL=username;
                 passwordL= password;
                 groupsInL = new ArrayList<>(groupsIn);

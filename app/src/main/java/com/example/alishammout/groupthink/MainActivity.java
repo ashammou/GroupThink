@@ -26,10 +26,12 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
-    FirebaseDatabase database;
-    DatabaseReference myRef;
+    private FirebaseDatabase Logindatabase;
+    private DatabaseReference LoginRef;
+
     private EditText enterUsername, enterPassword;
     private Button loginButton, accountB;
+    private String UserID;
 
     
 //testing Marius commit
@@ -51,6 +53,8 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
         //Authentication functionality initialization
         mAuth = FirebaseAuth.getInstance();
+        Logindatabase = FirebaseDatabase.getInstance();
+        LoginRef = LoginRef.getRef();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -69,6 +73,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
             }
 
         };
+
     }
 
     //Allows for reading information from database
@@ -103,10 +108,11 @@ public class MainActivity extends Activity implements View.OnClickListener{
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
 
+                            FirebaseUser currentUser = mAuth.getCurrentUser();
+                            UserID = currentUser.getUid();
                             ArrayList<String> emptyGroupList = new ArrayList<>();
-                            UserClass newUser = new UserClass(email1, password1, emptyGroupList);
-
-
+                            UserClass newUser = new UserClass(UserID, email1, password1, emptyGroupList);
+                            LoginRef.getRef().child("users").child(UserID).setValue(newUser);
 
                             Toast.makeText(MainActivity.this, "Register Success",
                                     Toast.LENGTH_SHORT).show();

@@ -37,6 +37,8 @@ public class GroupOverview extends Activity implements View.OnClickListener {
     public void getUser() {
         user = new UserClass();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+        //Here is where the data comes from Firebase
         DatabaseReference GroupDisplayRef = database.getReference("UserClass");
 
         // Read from the database
