@@ -3,13 +3,18 @@ package com.example.alishammout.groupthink;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+
+import java.util.ArrayList;
 
 public class AddPeople extends Activity implements View.OnClickListener {
 
     private Button doneButton;
     private Button cancelButton;
+    private ArrayList<UserClass> groupMembers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +26,20 @@ public class AddPeople extends Activity implements View.OnClickListener {
 
         doneButton.setOnClickListener(this);
         cancelButton.setOnClickListener(this);
+    }
+
+    private void initializeGroupMembers() {
+        groupMembers = new ArrayList<>();
+        ArrayList<GroupClass> groupsUserIsIn = new ArrayList<>();
+        groupMembers.add(new UserClass("SampleUsername", "SamplePassword", groupsUserIsIn));
+    }
+
+    private void initRecyclerView() {
+        RecyclerView recyclerViewAddPeople = findViewById(R.id.recyclerAddPeople);
+        RecyclerViewAdapterAddPeople recyclerViewAdapterAddPeople = new RecyclerViewAdapterAddPeople(groupMembers, this);
+        recyclerViewAddPeople.setAdapter(recyclerViewAdapterAddPeople);
+        recyclerViewAddPeople.setLayoutManager(new LinearLayoutManager(this));
+
     }
 
     @Override

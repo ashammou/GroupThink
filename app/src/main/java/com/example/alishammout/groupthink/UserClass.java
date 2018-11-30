@@ -34,11 +34,10 @@ public class UserClass extends Activity  {
 
         }
 
-        public UserClass (String username,String password,ArrayList<GroupClass> groupsIn) {
+        public UserClass (String username, String password, ArrayList<GroupClass> groupsIn) {
                 usernameL=username;
                 passwordL= password;
                 groupsInL = new ArrayList<>(groupsIn);
-
         }
 
 

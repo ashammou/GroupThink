@@ -25,7 +25,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="22dp"
-        android:text="Add People" />
+        android:text="Add Group Members" />
 
     <TextView
         android:id="@+id/textView2"
@@ -74,22 +74,6 @@
         android:layout_marginBottom="-7dp"
         android:background="?android:attr/listDivider" />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="197dp">
-
-        <EditText
-            android:id="@+id/editText11"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Person Name" />
-    </ScrollView>
-
     <Button
         android:id="@+id/cancelButton"
         android:layout_width="wrap_content"
@@ -97,5 +81,13 @@
         android:layout_alignBottom="@+id/doneButton"
         android:layout_toStartOf="@+id/editText2"
         android:text="Cancel" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerAddPeople"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="170dp" />
 
 </RelativeLayout>
