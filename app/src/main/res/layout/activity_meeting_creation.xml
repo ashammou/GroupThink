@@ -16,14 +16,27 @@
         android:layout_marginTop="60dp"
         android:background="?android:attr/listDivider" />
 
-    <TextView
-        android:id="@+id/MeetingCreationText"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/editTextMeetingName"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:text="Meeting 33" />
+        android:layout_marginTop="100dp"
+        android:ems="10"
+        android:hint="Enter Meeting name here..."
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/editTextMeetingTime"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
+        android:ems="10"
+        android:hint="Enter Meeting time here..."
+        android:inputType="textPersonName" />
 
     <Button
         android:id="@+id/buttonAddPeople"
@@ -31,8 +44,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="132dp"
-        android:text="Add people here..." />
+        android:layout_marginTop="250dp"
+        android:text="Next Step: Add people" />
 
     <EditText
         android:id="@+id/editTextLocation"
@@ -40,49 +53,19 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="208dp"
+        android:layout_marginTop="200dp"
         android:ems="10"
         android:hint="Enter Location here..."
         android:inputType="textPersonName" />
 
-    <ImageButton
-        android:id="@+id/imageButton"
+    <TextView
+        android:id="@+id/textViewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editTextLocation"
-        android:layout_alignStart="@+id/editTextLocation"
-        android:layout_alignLeft="@+id/editTextLocation"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="80dp"
-        android:src="@drawable/ic_launcher_foreground" />
-
-    <ImageButton
-        android:id="@+id/imageButton6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/editTextLocation"
-        android:layout_alignEnd="@+id/editTextLocation"
-        android:layout_alignRight="@+id/editTextLocation"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="50dp"
-        android:layout_marginStart="0dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginBottom="80dp"
-        android:src="@drawable/ic_launcher_foreground" />
-
-    <Button
-        android:id="@+id/buttonDone"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        android:text="Done" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Create your meeting" />
+
 
 </RelativeLayout>
