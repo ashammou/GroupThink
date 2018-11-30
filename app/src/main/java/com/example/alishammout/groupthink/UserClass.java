@@ -19,7 +19,7 @@ public class UserClass extends Activity  {
 
 
         public String usernameL,passwordL;
-        public ArrayList<GroupClass> groupsInL;
+        public ArrayList<String> groupsInL;
 
         FirebaseDatabase database;
         DatabaseReference myRef;
@@ -34,7 +34,7 @@ public class UserClass extends Activity  {
 
         }
 
-        public UserClass (String username,String password,ArrayList<GroupClass> groupsIn) {
+        public UserClass (String username,String password,ArrayList<String> groupsIn) {
                 usernameL=username;
                 passwordL= password;
                 groupsInL = new ArrayList<>(groupsIn);
@@ -52,7 +52,7 @@ public class UserClass extends Activity  {
                 return passwordL;
         }
 
-        public List<GroupClass> getGroupsInL() {
+        public List<String> getGroupsInL() {
                 return groupsInL;
         }
 
@@ -66,7 +66,7 @@ public class UserClass extends Activity  {
                 passwordL = password;
         }
 
-        public void setGroupsInL(List<GroupClass> groupsIn) {
+        public void setGroupsInL(List<String> groupsIn) {
                 groupsInL = new ArrayList<>(groupsIn);
         }
 
