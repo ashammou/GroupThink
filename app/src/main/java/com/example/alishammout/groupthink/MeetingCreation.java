@@ -7,6 +7,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MeetingCreation extends Activity implements View.OnClickListener{
 
@@ -32,13 +39,46 @@ public class MeetingCreation extends Activity implements View.OnClickListener{
 
         if (v == buttonAddPeople) {
 
+            String meetingName = editTextMeetingName.getText().toString();
 
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference myRef = database.getReference(meetingName);
+            myRef.addListenerForSingleValueEvent(postListener);
 
-            //has to save all entered data before switching
-            Intent intent = new Intent(
-                    MeetingCreation.this, AddPeople.class);
-            startActivity(intent);
         }
 
     }
+
+    ValueEventListener postListener = new ValueEventListener() {
+        @Override
+        public void onDataChange(DataSnapshot dataSnapshot) {
+
+            String meetingName = editTextMeetingName.getText().toString();
+
+            if (dataSnapshot.exists()) {
+                //If the dataSnapshot already exists, the meeting should be edited, not created
+                // Show message to stop user
+                Toast.makeText(MeetingCreation.this, "This meeting already exists. Please go to \"edit\" or choose other meeting name.",
+                        Toast.LENGTH_SHORT).show();
+
+            } else {
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference(meetingName);
+
+                //This is where firebase item is updated.
+                //has to save all entered data before switching
+                Intent intent = new Intent(
+                        MeetingCreation.this, AddPeople.class);
+                startActivity(intent);
+            }
+
+        }
+
+        @Override
+        public void onCancelled(DatabaseError databaseError) {
+            // Getting Post failed, log a message
+            //Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
+            // ...
+        }
+    };
 }

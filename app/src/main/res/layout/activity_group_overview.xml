@@ -10,9 +10,7 @@
         android:id="@+id/divider3"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
         android:layout_marginTop="60dp"
         android:background="?android:attr/listDivider" />
 
@@ -26,47 +24,18 @@
         android:text="Group Overview" />
 
 
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="100dp"
-        android:layout_height="30dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="151dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="150dp"
-        android:layout_marginRight="150dp"
-        tools:src="@tools:sample/avatars" />
-
-    <ScrollView
+    <Button
+        android:id="@+id/buttonAddGroup"
         android:layout_width="match_parent"
-        android:layout_height="376dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_below="@id/imageButton3"
-        android:layout_marginTop="20dp"
-        android:scrollbarStyle="insideOverlay">
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divider3"
+        android:text="Add Group" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerGroupOverview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/buttonAddGroup" />
 
-            <EditText
-                android:id="@+id/editText3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Group 1" />
-
-        </LinearLayout>
-    </ScrollView>
 
 </RelativeLayout>
