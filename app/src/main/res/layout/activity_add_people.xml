@@ -90,4 +90,12 @@
             android:text="Person Name" />
     </ScrollView>
 
+    <Button
+        android:id="@+id/cancelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/doneButton"
+        android:layout_toStartOf="@+id/editText2"
+        android:text="Cancel" />
+
 </RelativeLayout>
