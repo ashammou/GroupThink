@@ -30,8 +30,8 @@ public class GroupOverview extends Activity implements View.OnClickListener {
         buttonAddGroup = findViewById(R.id.buttonAddGroup);
 
         buttonAddGroup.setOnClickListener(this);
-        initRecyclerView();
-        getUser();
+        //initRecyclerView();
+        //getUser();
     }
 
     public void getUser() {

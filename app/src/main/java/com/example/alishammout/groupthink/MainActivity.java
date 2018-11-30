@@ -3,6 +3,9 @@ package com.example.alishammout.groupthink;
 import android.app.Activity;
 import android.content.Intent;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -33,15 +36,13 @@ public class MainActivity extends Activity implements View.OnClickListener{
     private Button loginButton, accountB;
     private String UserID;
 
-    
-//testing Marius commit
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mAuth = FirebaseAuth.getInstance();
 
         enterUsername = findViewById(R.id.login);
         enterPassword = findViewById(R.id.password);
@@ -50,33 +51,54 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
         loginButton.setOnClickListener(this);
         accountB.setOnClickListener(this);
-
-        //Authentication functionality initialization
-        mAuth = FirebaseAuth.getInstance();
-        Logindatabase = FirebaseDatabase.getInstance();
-        LoginRef = LoginRef.getRef();
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    //User is signed in
-
-
-                } else {
-                    //User is signed out
-
-
-                }
-
-            }
-
-        };
-
     }
 
-    //Allows for reading information from database
+    //method for checking valid email format
+    public static boolean isEmailValid (String email) {
+        String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
+        Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+
+    //method for creating new account
+    public void createAccount(final String email, final String password) {
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+
+                            /*
+                            // Code to upload java UserClass file to firebase
+                            Logindatabase = FirebaseDatabase.getInstance();
+                            LoginRef = LoginRef.getRef();
+
+                            FirebaseUser currentUser = mAuth.getCurrentUser();
+                            UserID = currentUser.getUid();
+                            ArrayList<String> emptyGroupList = new ArrayList<>();
+                            UserClass newUser = new UserClass(UserID, email, password, emptyGroupList);
+                            LoginRef.child("users").child(UserID).setValue(newUser);
+                            */
+
+
+                            Toast.makeText(MainActivity.this,
+                                    "Registration successful.", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(
+                                    MainActivity.this, GroupOverview.class);
+                            startActivity(intent);
+                        } else {
+                            Toast.makeText(MainActivity.this,
+                                    "ERROR: This email already exits",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+
+                        // ...
+                    }
+                });
+    }
+
+    /*Allows for reading information from database
     ValueEventListener postListener = new ValueEventListener() {
         @Override
         //creates snapshot of database for data extraction
@@ -99,49 +121,25 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
         }
     };
+    */
 
-    //this method allows for the creation of a user account
-    public void createAccount(final String email1, final String password1) {
-        mAuth.createUserWithEmailAndPassword(email1, password1).addOnCompleteListener(this,
-                new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-
-                            FirebaseUser currentUser = mAuth.getCurrentUser();
-                            UserID = currentUser.getUid();
-                            ArrayList<String> emptyGroupList = new ArrayList<>();
-                            UserClass newUser = new UserClass(UserID, email1, password1, emptyGroupList);
-                            LoginRef.getRef().child("users").child(UserID).setValue(newUser);
-
-                            Toast.makeText(MainActivity.this, "Register Success",
-                                    Toast.LENGTH_SHORT).show();
-                            // Sign in success, update UI with the signed-in user's information
-                        } else {
-                            Toast.makeText(MainActivity.this, "Register Failure",
-                                    Toast.LENGTH_SHORT).show();
-                            // If sign in fails, display a message to the user.
-                        }
-                    }
-                });
-    }
-
-    //This method allows for the signing in of a user
+    //method for signing in
     public void signIn(String email, String password) {
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            //Takes to group page
-                            startActivity(new Intent(MainActivity.this, GroupOverview.class));
-
-                        } else {
-                            //Sign in was a failure and tells user
-                            Toast.makeText(MainActivity.this, "Sign In Failure",
+                            Intent intent = new Intent(
+                                    MainActivity.this, GroupOverview.class);
+                            Toast.makeText(MainActivity.this,
+                                    "Login successful",
                                     Toast.LENGTH_SHORT).show();
-
-
+                            startActivity(intent);
+                        } else {
+                            Toast.makeText(MainActivity.this,
+                                    "ERROR: Make sure you are registered and email and password are correct",
+                                    Toast.LENGTH_SHORT).show();
                         }
 
                     }
@@ -151,23 +149,52 @@ public class MainActivity extends Activity implements View.OnClickListener{
     @Override
     public void onClick(View v) {
 
-        String loginS;
-        String passwordS;
-        passwordS = enterPassword.getText().toString();
-        loginS = enterUsername.getText().toString();
+        String password, email;
+
+        password = enterPassword.getText().toString();
+        email = enterUsername.getText().toString();
 
 
+        if (v == accountB) {
+
+            //Check for right email format
+            if (isEmailValid(email)) {
+                if (password.length() >= 6) {
+
+                    //What to do if both email and password are ok
+                    createAccount(email, password);
+                } else {
+
+                    //What to do if password doesn't fit
+                    Toast.makeText(this, "ERROR: Password must have at least 6 characters", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+
+                //What to do if email doesn't have the right format
+                Toast.makeText(this, "ERROR: Invalid email format", Toast.LENGTH_SHORT).show();
+            }
+        }
 
         if (v == loginButton) {
 
-            signIn(loginS, passwordS);
+            //Check for right email format
+            if (isEmailValid(email)) {
+                if (password.length() >= 6) {
 
+                    //What to do if both email and password are ok
+                    signIn(email, password);
 
-        }
+                } else {
 
-        else if (v == accountB) {
+                    //What to do if password doesn't fit
+                    Toast.makeText(this, "ERROR: Password must have at least 6 characters", Toast.LENGTH_SHORT).show();
+                }
+            } else {
 
-            createAccount(loginS, passwordS);
+                //What to do if email doesn't have the right format
+                Toast.makeText(this, "ERROR: Invalid email format", Toast.LENGTH_SHORT).show();
+
+            }
         }
 
     }
