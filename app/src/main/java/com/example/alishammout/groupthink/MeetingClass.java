@@ -16,7 +16,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MeetingClass {
 
-    public String starttimeL, locationL;
+    public String starttimeL, locationL, nameL;
     public List<AgendaItemsClass> agendaL = new ArrayList<>();
     public List<UserClass> meetingattendeesL = new ArrayList<>();
 
@@ -26,6 +26,7 @@ public class MeetingClass {
 
     public MeetingClass(){
 
+        nameL = "";
         starttimeL = "";
         locationL = "";
         agendaL = new ArrayList<>();
@@ -34,9 +35,10 @@ public class MeetingClass {
 
     }
 
-    public MeetingClass(List<AgendaItemsClass> agenda, String starttime, String location, List<UserClass>
+    public MeetingClass(List<AgendaItemsClass> agenda, String starttime, String nameL, String location, List<UserClass>
             meetingattendees) {
 
+        this.nameL = nameL;
         agendaL = agenda;
         starttimeL = starttime;
         locationL = location;

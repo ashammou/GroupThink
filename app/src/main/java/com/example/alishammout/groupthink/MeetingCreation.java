@@ -31,7 +31,9 @@ public class MeetingCreation extends Activity implements View.OnClickListener{
     public void onClick(View v) {
 
         if (v == buttonAddPeople) {
-            
+
+
+
             //has to save all entered data before switching
             Intent intent = new Intent(
                     MeetingCreation.this, AddPeople.class);
