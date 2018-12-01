@@ -25,56 +25,6 @@
         android:layout_marginTop="20dp"
         android:text="Group Name" />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="376dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="143dp"
-        android:scrollbarStyle="insideOverlay">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <EditText
-                android:id="@+id/editText3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="HW Meeting #1" />
-
-            <EditText
-                android:id="@+id/editText8"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="HW Meeting #2" />
-
-            <EditText
-                android:id="@+id/editText9"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Finance Project #1" />
-
-            <EditText
-                android:id="@+id/editText10"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Finance Project #2" />
-        </LinearLayout>
-    </ScrollView>
-
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="74dp"
@@ -104,5 +54,13 @@
         android:layout_marginLeft="11dp"
         android:layout_marginBottom="-60dp"
         android:text="Back" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/meetingRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="153dp" />
 
 </RelativeLayout>

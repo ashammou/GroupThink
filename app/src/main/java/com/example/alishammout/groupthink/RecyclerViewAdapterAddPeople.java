@@ -1,6 +1,7 @@
 package com.example.alishammout.groupthink;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -48,8 +49,8 @@ public class RecyclerViewAdapterAddPeople extends RecyclerView.Adapter<RecyclerV
 
          public ViewHolder(@NonNull View itemView) {
              super(itemView);
-             itemView = itemView.findViewById(R.id.imageView);
-             textView = itemView.findViewById(R.id.textView);
+             imageView = itemView.findViewById(R.id.imageView3);
+             textView = itemView.findViewById(R.id.textView6);
              parentLayout = itemView.findViewById(R.id.parent_layout);
          }
      }
