@@ -44,7 +44,7 @@ public class AgendaCreation extends Activity implements View.OnClickListener{
 
         //Receive object data from firebase below are just a text
 
-        agenda.add(new AgendaItemsClass(acedit1, "000", acedit2, "SpeakerBob"));
+        agenda.add(new AgendaItemsClass(acedit1, acedit2));
 
         recyclerviewadapter();
     }
