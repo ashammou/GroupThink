@@ -15,7 +15,7 @@ public class AgendaCreation extends Activity implements View.OnClickListener{
 
     private Button agendaB, donebuttonAC;
     private EditText acedit1, acedit2;
-    private ArrayList<AgendaItemsClass> agenda;
+    private ArrayList<AgendaItemsClass> agenda = new ArrayList<>();
 
 
     @Override
