@@ -1,6 +1,7 @@
 package com.example.alishammout.groupthink;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,7 +11,6 @@ public class MeetingInformation extends Activity implements View.OnClickListener
 
     private EditText locationE, timeE, person1, person2, person3;
     private Button doneButton;
-
 
 
     @Override
@@ -35,5 +35,9 @@ public class MeetingInformation extends Activity implements View.OnClickListener
     @Override
     public void onClick(View v) {
 
+        if (v == doneButton){
+            Intent intent = new Intent(MeetingInformation.this, MeetingClass.class);
+            startActivity(intent);
+        }
     }
 }
