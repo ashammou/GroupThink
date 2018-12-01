@@ -1,6 +1,7 @@
 package com.example.alishammout.groupthink;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -32,12 +33,14 @@ public class RecyclerViewAdapterGroupOverview extends RecyclerView.Adapter<Recyc
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderGroupOverview viewHolderGroupOverview, final int i) {
-        //needs fixing
-        viewHolderGroupOverview.buttonSelectGroup.setText(user.getGroupsInL().get(i));
+        viewHolderGroupOverview.textViewSelectGroup.setText(user.getGroupsInL().get(i));
         viewHolderGroupOverview.parentLayoutGroupOverview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                Intent intent = new Intent(
+                        nContext, MeetingSelection.class);
+                nContext.startActivity(intent);
             }
         });
     }
@@ -49,12 +52,12 @@ public class RecyclerViewAdapterGroupOverview extends RecyclerView.Adapter<Recyc
 
     public class ViewHolderGroupOverview extends RecyclerView.ViewHolder {
 
-        Button buttonSelectGroup;
+        Button textViewSelectGroup;
         RelativeLayout parentLayoutGroupOverview;
         public ViewHolderGroupOverview(@NonNull View itemView) {
             super(itemView);
 
-            buttonSelectGroup = itemView.findViewById(R.id.buttonSelectGroup);
+            textViewSelectGroup = itemView.findViewById(R.id.textViewSelectGroup);
             parentLayoutGroupOverview = itemView.findViewById(R.id.parentLayoutGroupOverview);
         }
     }
