@@ -36,7 +36,7 @@ public class MeetingInformation extends Activity implements View.OnClickListener
     public void onClick(View v) {
 
         if (v == doneButton){
-            Intent intent = new Intent(MeetingInformation.this, MeetingClass.class);
+            Intent intent = new Intent(MeetingInformation.this, MeetingLayout.class);
             startActivity(intent);
         }
     }

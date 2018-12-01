@@ -11,6 +11,8 @@ import java.util.ArrayList;
 public class MeetingLayout extends Activity implements View.OnClickListener {
 
     private Button backButton;
+    private Button imageButtonAgenda;
+    private Button editButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,11 @@ public class MeetingLayout extends Activity implements View.OnClickListener {
         if (view == backButton) {
             Intent intent  = new Intent(MeetingLayout.this, MeetingSelection.class);
             startActivity(intent);
+        }
+
+        if (view == imageButtonAgenda) {
+            Intent intent2  = new Intent(MeetingLayout.this, MeetingInformation.class);
+            startActivity(intent2);
         }
     }
 }

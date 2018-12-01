@@ -12,7 +12,7 @@ import android.widget.ScrollView;
 
 import java.util.ArrayList;
 
-public class AddGroup extends Activity implements View.OnClickListener {
+public class    AddGroup extends Activity implements View.OnClickListener {
 
     private EditText addGroup;
     private EditText addPeople;
