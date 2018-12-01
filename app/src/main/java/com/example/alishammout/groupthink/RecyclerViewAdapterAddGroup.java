@@ -36,6 +36,7 @@ public class RecyclerViewAdapterAddGroup extends RecyclerView.Adapter<RecyclerVi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+        viewHolder.textView.setText(addGUsers.get(i).usernameL);
 
     }
 

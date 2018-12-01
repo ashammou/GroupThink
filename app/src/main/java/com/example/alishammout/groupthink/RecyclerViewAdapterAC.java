@@ -38,6 +38,8 @@ public class RecyclerViewAdapterAC extends RecyclerView.Adapter<RecyclerViewAdap
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+        viewHolder.agendaAClocal.setText(agenda.get(i).descriptionL);
+        viewHolder.agendaANlocal.setText(agenda.get(i).notesL);
 
     }
 
