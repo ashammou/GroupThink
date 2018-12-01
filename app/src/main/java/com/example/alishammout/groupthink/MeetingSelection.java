@@ -23,6 +23,8 @@ public class MeetingSelection extends Activity implements View.OnClickListener {
         backButton = findViewById(R.id.backButton);
 
         backButton.setOnClickListener(this);
+        initializeGroupMeetings();
+        initializeRecyclerView();
     }
 
     private void initializeGroupMeetings() {
