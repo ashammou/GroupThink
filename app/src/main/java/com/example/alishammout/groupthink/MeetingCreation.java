@@ -30,6 +30,7 @@ public class MeetingCreation extends Activity implements View.OnClickListener{
         editTextLocation = findViewById(R.id.editTextLocation);
         editTextMeetingName = findViewById(R.id.editTextMeetingName);
         editTextMeetingTime = findViewById(R.id.editTextMeetingTime);
+        buttonAddPeople = findViewById(R.id.buttonAddPeople);
 
         buttonAddPeople.setOnClickListener(this);
     }
