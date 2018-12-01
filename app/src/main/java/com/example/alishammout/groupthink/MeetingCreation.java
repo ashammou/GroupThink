@@ -19,7 +19,7 @@ public class MeetingCreation extends Activity implements View.OnClickListener{
 
     private TextView textViewTitle;
     private EditText editTextMeetingName, editTextMeetingTime, editTextLocation;
-    private Button buttonAddPeople;
+    private Button buttonAddAgenda;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,15 +30,15 @@ public class MeetingCreation extends Activity implements View.OnClickListener{
         editTextLocation = findViewById(R.id.editTextLocation);
         editTextMeetingName = findViewById(R.id.editTextMeetingName);
         editTextMeetingTime = findViewById(R.id.editTextMeetingTime);
-        buttonAddPeople = findViewById(R.id.buttonAddPeople);
+        buttonAddAgenda = findViewById(R.id.buttonAddAgenda);
 
-        buttonAddPeople.setOnClickListener(this);
+        buttonAddAgenda.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
 
-        if (v == buttonAddPeople) {
+        if (v == buttonAddAgenda) {
 
             String meetingName = editTextMeetingName.getText().toString();
 
@@ -69,7 +69,7 @@ public class MeetingCreation extends Activity implements View.OnClickListener{
                 //This is where firebase item is updated.
                 //has to save all entered data before switching
                 Intent intent = new Intent(
-                        MeetingCreation.this, AddPeople.class);
+                        MeetingCreation.this, AgendaCreation.class);
                 startActivity(intent);
             }
 
