@@ -18,10 +18,6 @@ public class AgendaCreation extends Activity implements View.OnClickListener{
     private ArrayList<AgendaItemsClass> agenda;
 
 
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
