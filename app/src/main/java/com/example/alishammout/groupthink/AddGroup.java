@@ -40,9 +40,13 @@ public class AddGroup extends Activity implements View.OnClickListener {
 
     }
 
-    private void initaddGUsers() {
+    private void initaddGUsers(String nameofuser) {
 
+        //the below is an empty string since we should insert the user that the group is in
+        ArrayList<String> groupsUserIsIn = new ArrayList<>();
         //Receive object data from firebase below are just a text
+        // it should look to the database to find the user based off of username and retrieve object of user class
+        addGUsers.add(new UserClass("1234", nameofuser, "bobcat123", groupsUserIsIn ));
 
         recyclerviewadapter();
     }
@@ -65,5 +69,15 @@ public class AddGroup extends Activity implements View.OnClickListener {
             startActivity(new Intent(AddGroup.this, GroupOverview.class));
         }
 
+        else if (v == addPersonB) {
+
+
+            String addlocaluser = addPeople.getText().toString();
+            initaddGUsers(addlocaluser);
+
+
+        }
+
     }
+
 }

@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class AgendaCreation extends Activity implements View.OnClickListener{
 
     private Button agendaB, donebuttonAC;
+    private EditText acedit1, acedit2;
     private ArrayList<AgendaItemsClass> agenda;
 
 
@@ -28,6 +29,8 @@ public class AgendaCreation extends Activity implements View.OnClickListener{
 
         agendaB = findViewById(R.id.agendaB);
         donebuttonAC = findViewById(R.id.donebuttonAC);
+        acedit1 = findViewById(R.id.acedit1);
+        acedit2 = findViewById(R.id.acedit2);
 
         agendaB.setOnClickListener(this);
         donebuttonAC.setOnClickListener(this);
@@ -37,9 +40,11 @@ public class AgendaCreation extends Activity implements View.OnClickListener{
     }
 
 
-    private void initaddGUsers() {
+    private void initaddagendas(String acedit1, String acedit2) {
 
         //Receive object data from firebase below are just a text
+
+        agenda.add(new AgendaItemsClass(acedit1, "000", acedit2, "SpeakerBob"));
 
         recyclerviewadapter();
     }
@@ -61,6 +66,14 @@ public class AgendaCreation extends Activity implements View.OnClickListener{
 
         if (v == donebuttonAC) {
             startActivity(new Intent(AgendaCreation.this, MeetingCreation.class));
+        }
+
+        if (v == agendaB) {
+
+            String acedit1local = acedit1.getText().toString();
+            String acedit2local = acedit2.getText().toString();
+            initaddagendas(acedit1local, acedit2local);
+
         }
 
     }

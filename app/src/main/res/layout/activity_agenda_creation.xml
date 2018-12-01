@@ -19,11 +19,11 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerVAC"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="321dp"
+        android:layout_below="@+id/agendaB"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="96dp" />
+        android:layout_marginTop="108dp" />
 
     <Button
         android:id="@+id/donebuttonAC"
@@ -36,5 +36,33 @@
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
         android:text="Done" />
+
+    <EditText
+        android:id="@+id/acedit1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="19dp"
+        android:layout_marginLeft="19dp"
+        android:layout_marginTop="104dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name" />
+
+    <EditText
+        android:id="@+id/acedit2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/recyclerVAC"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="65dp"
+        android:layout_marginLeft="65dp"
+        android:layout_marginBottom="-108dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name" />
 
 </RelativeLayout>
