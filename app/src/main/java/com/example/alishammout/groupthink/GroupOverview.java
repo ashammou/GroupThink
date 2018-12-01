@@ -30,9 +30,11 @@ public class GroupOverview extends Activity implements View.OnClickListener {
         buttonAddGroup = findViewById(R.id.buttonAddGroup);
 
         buttonAddGroup.setOnClickListener(this);
+        initGroups();
         //initRecyclerView();
         //getUser();
     }
+
 
     public void getUser() {
         user = new UserClass();
@@ -59,18 +61,15 @@ public class GroupOverview extends Activity implements View.OnClickListener {
 
     }
 
-    /*
+    // will be replaced by Firebase code
     private void initGroups() {
-
-
-        // will be replaced by Firebase code
         ArrayList<String> groupsUser1 = new ArrayList<>();
         groupsUser1.add("TO426");
         groupsUser1.add("TO414");
-        user = new UserClass("Marius", "password", groupsUser1);
+        user = new UserClass("1223333","Marius", "password", groupsUser1);
 
     }
-    */
+
 
     private void initRecyclerView () {
         RecyclerView recyclerView = findViewById(R.id.recyclerGroupOverview);

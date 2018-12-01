@@ -54,7 +54,7 @@ public class UserClass extends Activity  {
                 return passwordL;
         }
 
-        public List<String> getGroupsInL() {
+        public ArrayList<String> getGroupsInL() {
                 return groupsInL;
         }
 
