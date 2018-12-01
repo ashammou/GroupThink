@@ -30,8 +30,8 @@ public class AddPeople extends Activity implements View.OnClickListener {
 
     private void initializeGroupMembers() {
         groupMembers = new ArrayList<>();
-        ArrayList<GroupClass> groupsUserIsIn = new ArrayList<>();
-        groupMembers.add(new UserClass("SampleUsername", "SamplePassword", groupsUserIsIn));
+        ArrayList<String> groupsUserIsIn = new ArrayList<>();
+        groupMembers.add(new UserClass("test","SampleUsername", "SamplePassword", groupsUserIsIn));
     }
 
     private void initRecyclerView() {
