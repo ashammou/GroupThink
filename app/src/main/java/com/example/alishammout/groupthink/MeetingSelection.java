@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class MeetingSelection extends Activity implements View.OnClickListener {
 
-    private Button backButton;
+    private Button backButton, buttonAddMeeting;
     private ArrayList<MeetingClass> groupMeetings;
 
     @Override
@@ -21,8 +21,10 @@ public class MeetingSelection extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_meeting_selection);
 
         backButton = findViewById(R.id.backButton);
+        buttonAddMeeting = findViewById(R.id.buttonAddMeeting);
 
         backButton.setOnClickListener(this);
+        buttonAddMeeting.setOnClickListener(this);
         initializeGroupMeetings();
         initializeRecyclerView();
     }
@@ -45,6 +47,11 @@ public class MeetingSelection extends Activity implements View.OnClickListener {
     public void onClick(View view) {
         if (view == backButton) {
             Intent intent  = new Intent(MeetingSelection.this, GroupOverview.class);
+            startActivity(intent);
+        }
+        
+        if (view == buttonAddMeeting) {
+            Intent intent  = new Intent(MeetingSelection.this, MeetingCreation.class);
             startActivity(intent);
         }
     }
