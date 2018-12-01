@@ -36,7 +36,7 @@ public class RecyclerViewAdapterAddGroup extends RecyclerView.Adapter<RecyclerVi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        viewHolder.textView.setText(addGUsers.get(i).usernameL);
+        viewHolder.agrvu.setText(addGUsers.get(i).usernameL);
 
     }
 
@@ -47,13 +47,13 @@ public class RecyclerViewAdapterAddGroup extends RecyclerView.Adapter<RecyclerVi
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView textView;
+        TextView agrvu;
         RelativeLayout parentLayout;
 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            textView = itemView.findViewById(R.id.addGroupRVuser);
+            agrvu = itemView.findViewById(R.id.addGroupRVuser);
             parentLayout = itemView.findViewById(R.id.parentLayoutaddG);
 
 

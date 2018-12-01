@@ -17,7 +17,7 @@ public class AddGroup extends Activity implements View.OnClickListener {
     private EditText addGroup;
     private EditText addPeople;
     private Button addPersonB, doneButton;
-    private ArrayList<UserClass> addGUsers;
+    private ArrayList<UserClass> addGUsers = new ArrayList<>();
 
 
 
@@ -46,7 +46,7 @@ public class AddGroup extends Activity implements View.OnClickListener {
         ArrayList<String> groupsUserIsIn = new ArrayList<>();
         //Receive object data from firebase below are just a text
         // it should look to the database to find the user based off of username and retrieve object of user class
-        addGUsers.add(new UserClass("1234", nameofuser, "bobcat123", groupsUserIsIn ));
+        addGUsers.add(new UserClass("1234", nameofuser, "bobcat123", groupsUserIsIn));
 
         recyclerviewadapter();
     }
