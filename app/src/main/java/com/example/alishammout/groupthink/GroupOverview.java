@@ -21,7 +21,6 @@ public class GroupOverview extends Activity implements View.OnClickListener {
 
     private Button buttonAddGroup;
     private UserClass user;
-    private RecyclerViewAdapterGroupOverview recyclerViewAdapterGroupOverview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +30,6 @@ public class GroupOverview extends Activity implements View.OnClickListener {
 
         buttonAddGroup.setOnClickListener(this);
         initGroups();
-        //initRecyclerView();
         //getUser();
     }
 
@@ -67,13 +65,14 @@ public class GroupOverview extends Activity implements View.OnClickListener {
         groupsUser1.add("TO426");
         groupsUser1.add("TO414");
         user = new UserClass("1223333","Marius", "password", groupsUser1);
+        initRecyclerView();
 
     }
 
 
     private void initRecyclerView () {
         RecyclerView recyclerView = findViewById(R.id.recyclerGroupOverview);
-        recyclerViewAdapterGroupOverview = new RecyclerViewAdapterGroupOverview(user, this);
+        RecyclerViewAdapterGroupOverview recyclerViewAdapterGroupOverview = new RecyclerViewAdapterGroupOverview(user, this);
         recyclerView.setAdapter(recyclerViewAdapterGroupOverview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
