@@ -30,6 +30,7 @@ public class GroupOverview extends Activity implements View.OnClickListener {
     private UserClass user;
     private ArrayList<String> groupsForUser = new ArrayList<>();
     private FirebaseAuth mauth;
+    private RecyclerViewAdapterGroupOverview recyclerViewAdapterGroupOverview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,18 +45,24 @@ public class GroupOverview extends Activity implements View.OnClickListener {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference();
 
+
+
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                int num = 0;
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     for (DataSnapshot snapshot2 : snapshot.child("usersInGroup").getChildren()) {
                         String myUser = snapshot2.getValue(String.class);
+                        Toast.makeText(GroupOverview.this, "myUser" , Toast.LENGTH_SHORT).show();
                         if (mauth.getCurrentUser().getEmail().equals(myUser)) {
+                            num += 1;
                             groupsForUser.add(snapshot.getKey());
-                            Toast.makeText(GroupOverview.this, snapshot.getKey(), Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(GroupOverview.this, snapshot.getKey(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
+                Toast.makeText(GroupOverview.this, "Num: " + String.valueOf(num), Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -64,37 +71,10 @@ public class GroupOverview extends Activity implements View.OnClickListener {
             }
         });
 
-        /*
-        myRef.child("user").equalTo(mauth.getCurrentUser().getEmail())     .addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+        Toast.makeText(GroupOverview.this, String.valueOf(groupsForUser.size()) , Toast.LENGTH_SHORT).show();
 
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        })
-*/
         initRecyclerView();
 
-        //getUser();
     }
 
 
@@ -127,7 +107,7 @@ public class GroupOverview extends Activity implements View.OnClickListener {
 
     private void initRecyclerView () {
         RecyclerView recyclerView = findViewById(R.id.recyclerGroupOverview);
-        RecyclerViewAdapterGroupOverview recyclerViewAdapterGroupOverview = new RecyclerViewAdapterGroupOverview(groupsForUser, this);
+        recyclerViewAdapterGroupOverview = new RecyclerViewAdapterGroupOverview(groupsForUser, this);
         recyclerView.setAdapter(recyclerViewAdapterGroupOverview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 

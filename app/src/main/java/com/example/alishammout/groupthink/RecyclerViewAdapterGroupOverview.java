@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class RecyclerViewAdapterGroupOverview extends RecyclerView.Adapter<RecyclerViewAdapterGroupOverview.ViewHolderGroupOverview> {
 
-    private ArrayList<String> groupsForUser2 = new ArrayList<>();
+    private ArrayList<String> groupsForUser2;
     private Context nContext;
 
     RecyclerViewAdapterGroupOverview(ArrayList<String> groupsForUser2, Context nContext) {
