@@ -10,6 +10,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
@@ -19,6 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 
@@ -27,7 +29,6 @@ public class GroupOverview extends Activity implements View.OnClickListener {
     private Button buttonAddGroup;
     private UserClass user;
     private ArrayList<String> groupsForUser = new ArrayList<>();
-    //private ArrayList<GroupClass> groupclassForUser = new ArrayList<>();
     private FirebaseAuth mauth;
 
     @Override
@@ -42,6 +43,26 @@ public class GroupOverview extends Activity implements View.OnClickListener {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference();
+
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    for (DataSnapshot snapshot2 : snapshot.child("usersInGroup").getChildren()) {
+                        String myUser = snapshot2.getValue(String.class);
+                        if (mauth.getCurrentUser().getEmail().equals(myUser)) {
+                            groupsForUser.add(snapshot.getKey());
+                            Toast.makeText(GroupOverview.this, snapshot.getKey(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         /*
         myRef.child("user").equalTo(mauth.getCurrentUser().getEmail())     .addChildEventListener(new ChildEventListener() {
