@@ -26,7 +26,7 @@ import java.util.ArrayList;
 
 public class GroupOverview extends Activity implements View.OnClickListener {
 
-    private Button buttonAddGroup;
+    private Button buttonAddGroup, button;
     private UserClass user;
     private ArrayList<String> groupsForUser = new ArrayList<>();
     private FirebaseAuth mauth;
@@ -42,19 +42,23 @@ public class GroupOverview extends Activity implements View.OnClickListener {
 
         buttonAddGroup.setOnClickListener(this);
 
+        button = findViewById(R.id.button);
+        button.setOnClickListener(this);
+
+
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference();
 
 
 
-        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 int num = 0;
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     for (DataSnapshot snapshot2 : snapshot.child("usersInGroup").getChildren()) {
                         String myUser = snapshot2.getValue(String.class);
-                        Toast.makeText(GroupOverview.this, "myUser" , Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(GroupOverview.this, "myUser: " + myUser, Toast.LENGTH_SHORT).show();
                         if (mauth.getCurrentUser().getEmail().equals(myUser)) {
                             num += 1;
                             groupsForUser.add(snapshot.getKey());
@@ -69,37 +73,7 @@ public class GroupOverview extends Activity implements View.OnClickListener {
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
-        });
 
-        Toast.makeText(GroupOverview.this, String.valueOf(groupsForUser.size()) , Toast.LENGTH_SHORT).show();
-
-        initRecyclerView();
-
-    }
-
-
-    public void getUser() {
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-
-        //Here is where the data comes from Firebase
-        DatabaseReference GroupDisplayRef = database.getReference("Group");
-
-        // Read from the database
-        GroupDisplayRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                for (DataSnapshot child : dataSnapshot.getChildren()) {
-
-
-
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-            }
         });
 
     }
@@ -118,6 +92,10 @@ public class GroupOverview extends Activity implements View.OnClickListener {
         if (v == buttonAddGroup) {
 
             startActivity(new Intent(GroupOverview.this, AddGroup.class));
+        }
+
+        if (v == button) {
+            initRecyclerView();
         }
     }
 }

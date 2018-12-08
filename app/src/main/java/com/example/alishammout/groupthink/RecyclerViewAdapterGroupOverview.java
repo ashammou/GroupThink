@@ -39,8 +39,8 @@ public class RecyclerViewAdapterGroupOverview extends RecyclerView.Adapter<Recyc
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(
-                        nContext, MeetingSelection.class);
+                Intent intent = new Intent(nContext, MeetingSelection.class);
+                intent.putExtra("passed_group", groupsForUser2.get(i));
                 nContext.startActivity(intent);
             }
         });

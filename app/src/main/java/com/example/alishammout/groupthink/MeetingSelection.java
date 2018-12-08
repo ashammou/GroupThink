@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -14,11 +15,15 @@ public class MeetingSelection extends Activity implements View.OnClickListener {
 
     private Button backButton, buttonAddMeeting;
     private ArrayList<MeetingClass> groupMeetings;
+    private String passedGroup;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meeting_selection);
+        passedGroup = getIntent().getStringExtra("passed_group");
+        Toast.makeText(this, passedGroup, Toast.LENGTH_SHORT).show();
 
         backButton = findViewById(R.id.backButton);
         buttonAddMeeting = findViewById(R.id.buttonAddMeeting);

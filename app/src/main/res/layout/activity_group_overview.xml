@@ -38,7 +38,7 @@
         android:layout_alignParentLeft="true"
         android:layout_marginStart="25dp"
         android:layout_marginLeft="25dp"
-        android:layout_marginTop="-1dp"
+        android:layout_marginTop="53dp"
         android:background="@color/Groupthink"
         android:text="Add Group" />
 
@@ -49,6 +49,14 @@
         android:layout_below="@id/buttonAddGroup"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="38dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/divider3"
+        android:layout_centerHorizontal="true"
+        android:text="Button" />
 
 
 </RelativeLayout>
