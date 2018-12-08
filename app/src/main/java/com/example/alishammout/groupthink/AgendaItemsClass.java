@@ -14,7 +14,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 
-public class AgendaItemsClass extends Activity{
+public class AgendaItemsClass {
 
     public String descriptionL, timeL, notesL, speakerL;
 
@@ -61,31 +61,6 @@ public class AgendaItemsClass extends Activity{
         notesL = notes;
     }
 
-
-    //Allows for reading object of Agenda items class information from database
-    ValueEventListener agendaListener = new ValueEventListener() {
-        @Override
-        //creates snapshot of database for data extraction
-        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-            //conditional on whether passed reference exists to have snapshot taken
-            if (dataSnapshot.exists()) {
-                //gets value from dataSnapshot from passed reference
-                AgendaItemsClass agenda = dataSnapshot.getValue(AgendaItemsClass.class);
-                //sets layout widget to the value of the reference
-                //example: textViewLookupQuantity.setText(post);
-
-            }
-            else {
-                Toast.makeText(AgendaItemsClass.this, "Data does not exist",
-                        Toast.LENGTH_SHORT).show();
-            }
-        }
-
-        @Override
-        public void onCancelled(@NonNull DatabaseError databaseError) {
-
-        }
-    };
 
 
 }

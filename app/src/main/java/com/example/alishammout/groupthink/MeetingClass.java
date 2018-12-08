@@ -17,7 +17,6 @@ import com.google.firebase.database.ValueEventListener;
 public class MeetingClass {
 
     public String starttimeL, locationL, nameL;
-    public List<AgendaItemsClass> agendaL = new ArrayList<>();
 
     FirebaseDatabase database;
     DatabaseReference myRef;
@@ -29,14 +28,11 @@ public class MeetingClass {
 
     }
 
-    public MeetingClass(List<AgendaItemsClass> agenda, String starttime, String nameL, String location) {
+    public MeetingClass(String starttime, String nameL, String location) {
 
         this.nameL = nameL;
-        this.agendaL = agenda;
         this.starttimeL = starttime;
         this.locationL = location;
-
-        this.agendaL = new ArrayList<>(agenda);
 
 
 
@@ -52,9 +48,6 @@ public class MeetingClass {
         return locationL;
     }
 
-    public List<AgendaItemsClass> getAgendaL(){
-        return agendaL;
-    }
 
 
 
@@ -68,38 +61,6 @@ public class MeetingClass {
         locationL = location;
 
     }
-
-    public void setAgendaL(List<AgendaItemsClass> agenda) {
-        agendaL = new ArrayList<>(agenda);
-    }
-
-
-
-    //Allows for reading object of group class information from database
-    ValueEventListener meetingListener = new ValueEventListener() {
-        @Override
-        //creates snapshot of database for data extraction
-        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-            //conditional on whether passed reference exists to have snapshot taken
-            if (dataSnapshot.exists()) {
-                //gets value from dataSnapshot from passed reference
-                MeetingClass meeting = dataSnapshot.getValue(MeetingClass.class);
-                //sets layout widget to the value of the reference
-                //example: textViewLookupQuantity.setText(post);
-
-            }
-            else {
-
-            }
-        }
-
-        @Override
-        public void onCancelled(@NonNull DatabaseError databaseError) {
-
-        }
-    };
-
-
 
 
 }
