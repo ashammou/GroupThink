@@ -18,7 +18,6 @@ public class MeetingClass {
 
     public String starttimeL, locationL, nameL;
     public List<AgendaItemsClass> agendaL = new ArrayList<>();
-    public List<UserClass> meetingattendeesL = new ArrayList<>();
 
     FirebaseDatabase database;
     DatabaseReference myRef;
@@ -26,24 +25,18 @@ public class MeetingClass {
 
     public MeetingClass(){
 
-        nameL = "";
-        starttimeL = "";
-        locationL = "";
-        agendaL = new ArrayList<>();
-        meetingattendeesL = new ArrayList<>();
 
 
     }
 
-    public MeetingClass(List<AgendaItemsClass> agenda, String starttime, String nameL, String location, List<UserClass>
-            meetingattendees) {
+    public MeetingClass(List<AgendaItemsClass> agenda, String starttime, String nameL, String location) {
 
         this.nameL = nameL;
-        agendaL = agenda;
-        starttimeL = starttime;
-        locationL = location;
-        meetingattendeesL = new ArrayList<>(meetingattendees);
-        agendaL = new ArrayList<>(agenda);
+        this.agendaL = agenda;
+        this.starttimeL = starttime;
+        this.locationL = location;
+
+        this.agendaL = new ArrayList<>(agenda);
 
 
 
@@ -63,9 +56,7 @@ public class MeetingClass {
         return agendaL;
     }
 
-    public List<UserClass> getMeetingattendeesL() {
-        return meetingattendeesL;
-    }
+
 
 
     public void setStarttimeL(String starttime){
@@ -82,9 +73,7 @@ public class MeetingClass {
         agendaL = new ArrayList<>(agenda);
     }
 
-    public void setMeetingattendeesL(List<UserClass> meetingattendees) {
-        meetingattendeesL = new ArrayList<>(meetingattendees);
-    }
+
 
     //Allows for reading object of group class information from database
     ValueEventListener meetingListener = new ValueEventListener() {

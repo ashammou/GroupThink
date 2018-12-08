@@ -24,13 +24,14 @@ public class AgendaItemsClass extends Activity{
     public AgendaItemsClass() {
 
 
+
     }
 
     public AgendaItemsClass(String description, String notes) {
 
-        descriptionL = description;
+        this.descriptionL = description;
 
-        notesL = notes;
+        this.notesL = notes;
 
 
 

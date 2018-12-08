@@ -16,10 +16,18 @@ import com.google.firebase.database.ValueEventListener;
 //comment
 
 
-public class GroupClass extends Activity{
+public class GroupClass {
 
     public ArrayList<String> usersInGroup;
     public String groupname;
+
+    public GroupClass(ArrayList<String> usersInGroup, String groupname) {
+        this.usersInGroup = usersInGroup;
+        this.groupname = groupname;
+    }
+
+    public GroupClass() {
+    }
 
     public ArrayList<String> getUsersInGroup() {
         return usersInGroup;
@@ -34,14 +42,6 @@ public class GroupClass extends Activity{
     }
 
     public void setGroupname(String groupname) {
-        this.groupname = groupname;
-    }
-
-    public GroupClass() {
-    }
-
-    public GroupClass(ArrayList<String> usersInGroup, String groupname) {
-        this.usersInGroup = usersInGroup;
         this.groupname = groupname;
     }
 }

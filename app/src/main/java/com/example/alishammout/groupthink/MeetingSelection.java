@@ -33,7 +33,7 @@ public class MeetingSelection extends Activity implements View.OnClickListener {
         groupMeetings = new ArrayList<>();
         ArrayList<AgendaItemsClass> agendaItems = new ArrayList<>();
         ArrayList<UserClass> meetingAttendees = new ArrayList<>();
-        groupMeetings.add(new MeetingClass(agendaItems, "startTime", "meetingName", "location", meetingAttendees));
+        groupMeetings.add(new MeetingClass(agendaItems, "startTime", "meetingName", "location"));
     }
 
     private void initializeRecyclerView() {

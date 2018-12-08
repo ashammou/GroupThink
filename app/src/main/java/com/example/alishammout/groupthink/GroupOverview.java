@@ -3,6 +3,7 @@ package com.example.alishammout.groupthink;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -28,18 +29,20 @@ public class GroupOverview extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_group_overview);
         buttonAddGroup = findViewById(R.id.buttonAddGroup);
 
+
         buttonAddGroup.setOnClickListener(this);
         initGroups();
+
+
         //getUser();
     }
 
 
     public void getUser() {
-        user = new UserClass();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
         //Here is where the data comes from Firebase
-        DatabaseReference GroupDisplayRef = database.getReference("UserClass");
+        DatabaseReference GroupDisplayRef = database.getReference("Group");
 
         // Read from the database
         GroupDisplayRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -47,6 +50,8 @@ public class GroupOverview extends Activity implements View.OnClickListener {
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
+
+
 
                 }
             }
@@ -81,7 +86,29 @@ public class GroupOverview extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if (v == buttonAddGroup) {
-            startActivity(new Intent(GroupOverview.this, AddGroup.class));
+
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference myRef = database.getReference();
+
+            ArrayList<String> dummy = new ArrayList<>();
+            ArrayList<MeetingClass> dummymeeting = new ArrayList<>();
+            ArrayList<AgendaItemsClass> agenda = new ArrayList<>();
+/*
+
+            dummy.add("bob1");
+            dummy.add("bob2");
+            dummy.add("bob3");
+
+
+            AgendaItemsClass agenda1 = new AgendaItemsClass("Description", "Notes");
+            agenda.add(agenda1);
+            MeetingClass dummyl = new MeetingClass(agenda, "12:00", "name", "location");
+            dummymeeting.add(dummyl);
+
+            myRef.child("Groups").setValue(new GroupClass(dummy, "grouptest", dummymeeting));*/
+
+
+            startActivity(new Intent(GroupOverview.this, MainActivity.class));
         }
     }
 }

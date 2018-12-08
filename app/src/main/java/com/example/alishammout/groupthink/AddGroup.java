@@ -43,6 +43,7 @@ public class    AddGroup extends Activity implements View.OnClickListener {
 
     }
 
+/*
     private void initaddGUsers(String nameofuser) {
 
         //the below is an empty string since we should insert the user that the group is in
@@ -63,6 +64,7 @@ public class    AddGroup extends Activity implements View.OnClickListener {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
     }
+*/
 
     @Override
     public void onClick(View v) {
