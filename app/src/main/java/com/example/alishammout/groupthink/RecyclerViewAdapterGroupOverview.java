@@ -15,11 +15,11 @@ import java.util.ArrayList;
 
 public class RecyclerViewAdapterGroupOverview extends RecyclerView.Adapter<RecyclerViewAdapterGroupOverview.ViewHolderGroupOverview> {
 
-    private UserClass user;
+    private ArrayList<String> groupsForUser2 = new ArrayList<>();
     private Context nContext;
 
-    RecyclerViewAdapterGroupOverview(UserClass user, Context nContext) {
-        this.user = user;
+    RecyclerViewAdapterGroupOverview(ArrayList<String> groupsForUser2, Context nContext) {
+        this.groupsForUser2 = groupsForUser2;
         this.nContext = nContext;
     }
 
@@ -34,7 +34,7 @@ public class RecyclerViewAdapterGroupOverview extends RecyclerView.Adapter<Recyc
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderGroupOverview viewHolderGroupOverview, final int i) {
-        viewHolderGroupOverview.textViewSelectGroup.setText(user.getGroupsInL().get(i));
+        viewHolderGroupOverview.textViewSelectGroup.setText(groupsForUser2.get(i));
         viewHolderGroupOverview.parentLayoutGroupOverview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,7 +48,7 @@ public class RecyclerViewAdapterGroupOverview extends RecyclerView.Adapter<Recyc
 
     @Override
     public int getItemCount() {
-        return user.getGroupsInL().size();
+        return groupsForUser2.size();
     }
 
     public class ViewHolderGroupOverview extends RecyclerView.ViewHolder {
