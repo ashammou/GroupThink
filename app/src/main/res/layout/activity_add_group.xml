@@ -7,7 +7,7 @@
     tools:context=".AddGroup">
 
     <EditText
-        android:id="@+id/addPeople"
+        android:id="@+id/addPeopletoGroup"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -39,11 +39,11 @@
         android:id="@+id/button2"
         android:layout_width="38dp"
         android:layout_height="37dp"
-        android:layout_alignTop="@+id/addPeople"
+        android:layout_alignTop="@+id/addPeopletoGroup"
         android:layout_marginTop="1dp"
-        android:layout_toEndOf="@+id/addPeople"
+        android:layout_toEndOf="@+id/addPeopletoGroup"
         android:text="+"
-        android:layout_toRightOf="@+id/addPeople" />
+        android:layout_toRightOf="@+id/addPeopletoGroup" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/addgRV"

@@ -14,10 +14,10 @@ import java.util.ArrayList;
 
 public class RecyclerViewAdapterAddGroup extends RecyclerView.Adapter<RecyclerViewAdapterAddGroup.ViewHolder>{
 
-    private ArrayList<UserClass> addGUsers;
+    private ArrayList<String> addGUsers;
     private Context addGContext;
 
-    RecyclerViewAdapterAddGroup(ArrayList<UserClass> addGUsers, Context addGContext) {
+    RecyclerViewAdapterAddGroup(ArrayList<String> addGUsers, Context addGContext) {
 
         this.addGUsers = addGUsers;
         this.addGContext = addGContext;
@@ -36,7 +36,7 @@ public class RecyclerViewAdapterAddGroup extends RecyclerView.Adapter<RecyclerVi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        viewHolder.agrvu.setText(addGUsers.get(i).usernameL);
+        viewHolder.agrvu.setText(addGUsers.get(i));
 
     }
 

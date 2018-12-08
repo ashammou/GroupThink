@@ -1,23 +1,26 @@
 package com.example.alishammout.groupthink;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ScrollView;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
 public class    AddGroup extends Activity implements View.OnClickListener {
 
-    private EditText addGroup;
-    private EditText addPeople;
+    private EditText addGroup, addPeopletoGroup;
     private Button addPersonB, buttonAddGroup;
-    private ArrayList<UserClass> addGUsers = new ArrayList<>();
+    public GroupClass currentGroup = new GroupClass();
+    private String groupName = "";
+    public ArrayList<String> usersArray = new ArrayList<>();
+    private String addedUser = "";
 
 
 
@@ -28,7 +31,7 @@ public class    AddGroup extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_add_group);
 
         addGroup = findViewById(R.id.addGroupName);
-        addPeople = findViewById(R.id.addPeople);
+        addPeopletoGroup = findViewById(R.id.addPeopletoGroup);
 
         addPersonB = findViewById(R.id.button2);
 
@@ -46,7 +49,7 @@ public class    AddGroup extends Activity implements View.OnClickListener {
         ArrayList<String> groupsUserIsIn = new ArrayList<>();
         //Receive object data from firebase below are just a text
         // it should look to the database to find the user based off of username and retrieve object of user class
-        addGUsers.add(new UserClass("1234", nameofuser, "bobcat123", groupsUserIsIn));
+        usersArray.add(new ArrayList<String>(usersArray));
 
         recyclerviewadapter();
     }
@@ -64,19 +67,26 @@ public class    AddGroup extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
 
+        groupName = addGroup.getText().toString();
+
         if (v == buttonAddGroup) {
 
+            currentGroup.setGroupname(groupName);
+            currentGroup.setUsersInGroup(usersArray);
 
-            
+
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference myRef = database.getReference(groupName);
+
+            myRef.setValue(currentGroup);
 
             //startActivity(new Intent(AddGroup.this, GroupOverview.class));
         }
 
         else if (v == addPersonB) {
 
-
-            String addlocaluser = addPeople.getText().toString();
-            initaddGUsers(addlocaluser);
+            addedUser = addPeopletoGroup.getText().toString();
+            usersArray.add(addedUser);
 
 
         }
