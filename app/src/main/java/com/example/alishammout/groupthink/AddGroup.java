@@ -16,7 +16,7 @@ public class    AddGroup extends Activity implements View.OnClickListener {
 
     private EditText addGroup;
     private EditText addPeople;
-    private Button addPersonB, doneButton;
+    private Button addPersonB, buttonAddGroup;
     private ArrayList<UserClass> addGUsers = new ArrayList<>();
 
 
@@ -33,8 +33,8 @@ public class    AddGroup extends Activity implements View.OnClickListener {
         addPersonB = findViewById(R.id.button2);
 
         addPersonB.setOnClickListener(this);
-        doneButton = findViewById(R.id.doneButton);
-        doneButton.setOnClickListener(this);
+        buttonAddGroup = findViewById(R.id.buttonAddGroup);
+        buttonAddGroup.setOnClickListener(this);
 
 
 
@@ -64,9 +64,12 @@ public class    AddGroup extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
 
-        if (v == doneButton) {
+        if (v == buttonAddGroup) {
 
-            startActivity(new Intent(AddGroup.this, GroupOverview.class));
+
+            
+
+            //startActivity(new Intent(AddGroup.this, GroupOverview.class));
         }
 
         else if (v == addPersonB) {
