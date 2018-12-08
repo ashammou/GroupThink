@@ -51,7 +51,7 @@ public class GroupOverview extends Activity implements View.OnClickListener {
 
 
 
-        myRef.addValueEventListener(new ValueEventListener() {
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 int num = 0;

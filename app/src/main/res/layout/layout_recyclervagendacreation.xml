@@ -6,7 +6,7 @@
 
     <EditText
         android:id="@+id/agendaCT"
-        android:layout_width="346dp"
+        android:layout_width="288dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
@@ -31,4 +31,17 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Notes" />
+
+    <EditText
+        android:id="@+id/editTextNewTime"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/agendaCT"
+        android:layout_toRightOf="@+id/agendaCT"
+        android:layout_margin="5dp"
+        android:layout_alignBaseline="@+id/agendaCT"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="" />
+
 </RelativeLayout>

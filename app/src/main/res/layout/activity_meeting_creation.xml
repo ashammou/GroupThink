@@ -37,7 +37,7 @@
         android:inputType="textPersonName" />
 
     <Button
-        android:id="@+id/buttonAddAgenda"
+        android:id="@+id/buttonAddMeeting"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"

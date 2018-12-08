@@ -19,20 +19,26 @@ public class MeetingCreation extends Activity implements View.OnClickListener{
 
     private TextView textViewTitle;
     private EditText editTextMeetingName, editTextMeetingTime, editTextLocation;
+    public MeetingClass createMeeting = new MeetingClass();
+    private String passedGroup, meetingname, meetingtime, meetinglocation;
     private Button buttonAddAgenda;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meeting_creation);
+        passedGroup = getIntent().getStringExtra("passed_group1");
 
         textViewTitle = findViewById(R.id.textViewTitle);
         editTextLocation = findViewById(R.id.editTextLocation);
         editTextMeetingName = findViewById(R.id.editTextMeetingName);
         editTextMeetingTime = findViewById(R.id.editTextMeetingTime);
-        buttonAddAgenda = findViewById(R.id.buttonAddAgenda);
+        buttonAddAgenda = findViewById(R.id.buttonAddMeeting);
 
         buttonAddAgenda.setOnClickListener(this);
+
+        Toast.makeText(MeetingCreation.this, passedGroup, Toast.LENGTH_SHORT).show();
+
     }
 
     @Override
@@ -40,46 +46,16 @@ public class MeetingCreation extends Activity implements View.OnClickListener{
 
         if (v == buttonAddAgenda) {
 
-            String meetingName = editTextMeetingName.getText().toString();
+            meetingname = editTextMeetingName.getText().toString();
+            meetingtime = editTextMeetingTime.getText().toString();
+            meetinglocation= editTextLocation.getText().toString();
+            createMeeting = new MeetingClass(meetingtime, meetingname, meetinglocation);
 
             FirebaseDatabase database = FirebaseDatabase.getInstance();
-            DatabaseReference myRef = database.getReference(meetingName);
-            myRef.addListenerForSingleValueEvent(postListener);
+            DatabaseReference myRef = database.getReference(passedGroup);
+            myRef.child("meetings").child(meetingname).setValue(createMeeting);
 
         }
 
     }
-
-    ValueEventListener postListener = new ValueEventListener() {
-        @Override
-        public void onDataChange(DataSnapshot dataSnapshot) {
-
-            String meetingName = editTextMeetingName.getText().toString();
-
-            if (dataSnapshot.exists()) {
-                //If the dataSnapshot already exists, the meeting should be edited, not created
-                // Show message to stop user
-                Toast.makeText(MeetingCreation.this, "This meeting already exists. Please go to \"edit\" or choose other meeting name.",
-                        Toast.LENGTH_SHORT).show();
-
-            } else {
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference(meetingName);
-
-                //This is where firebase item is updated.
-                //has to save all entered data before switching
-                Intent intent = new Intent(
-                        MeetingCreation.this, AgendaCreation.class);
-                startActivity(intent);
-            }
-
-        }
-
-        @Override
-        public void onCancelled(DatabaseError databaseError) {
-            // Getting Post failed, log a message
-            //Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
-            // ...
-        }
-    };
 }

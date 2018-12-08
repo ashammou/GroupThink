@@ -16,51 +16,38 @@ import com.google.firebase.database.ValueEventListener;
 
 public class AgendaItemsClass {
 
-    public String descriptionL, timeL, notesL, speakerL;
+    public String descriptionL, timeL, notesL;
 
-    FirebaseDatabase database;
-    DatabaseReference myRef;
+    public AgendaItemsClass(String descriptionL, String timeL, String notesL) {
+        this.descriptionL = descriptionL;
+        this.timeL = timeL;
+        this.notesL = notesL;
+    }
 
     public AgendaItemsClass() {
-
-
-
     }
 
-    public AgendaItemsClass(String description, String notes) {
-
-        this.descriptionL = description;
-
-        this.notesL = notes;
-
-
-
-    }
-
-    public String getDescriptionL(){
-
+    public String getDescriptionL() {
         return descriptionL;
-
     }
 
+    public void setDescriptionL(String descriptionL) {
+        this.descriptionL = descriptionL;
+    }
 
+    public String getTimeL() {
+        return timeL;
+    }
 
-    public String getNotesL(){
+    public void setTimeL(String timeL) {
+        this.timeL = timeL;
+    }
+
+    public String getNotesL() {
         return notesL;
     }
 
-
-    public void setDescriptionL(String description) {
-        descriptionL = description;
-
-
+    public void setNotesL(String notesL) {
+        this.notesL = notesL;
     }
-
-
-    public void setNotesL(String notes) {
-        notesL = notes;
-    }
-
-
-
 }

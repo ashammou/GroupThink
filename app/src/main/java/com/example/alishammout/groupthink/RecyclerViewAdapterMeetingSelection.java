@@ -15,10 +15,10 @@ import java.util.ArrayList;
 
 public class RecyclerViewAdapterMeetingSelection extends RecyclerView.Adapter<RecyclerViewAdapterMeetingSelection.ViewHolder> {
 
-    ArrayList<MeetingClass> groupMeetings;
+    private ArrayList<String> groupMeetings;
     private Context mContext;
 
-    RecyclerViewAdapterMeetingSelection(ArrayList<MeetingClass> groupMeetings, Context mContext) {
+    RecyclerViewAdapterMeetingSelection(ArrayList<String> groupMeetings, Context mContext) {
         this.groupMeetings = groupMeetings;
         this.mContext = mContext;
     }
@@ -33,11 +33,12 @@ public class RecyclerViewAdapterMeetingSelection extends RecyclerView.Adapter<Re
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
-        viewHolder.textView.setText(groupMeetings.get(i).nameL);
+        viewHolder.textView.setText(groupMeetings.get(i));
         viewHolder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, MeetingLayout.class);
+                intent.putExtra("passed_meeting", groupMeetings.get(i));
                 mContext.startActivity(intent);
             }
         });

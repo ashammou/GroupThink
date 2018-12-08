@@ -18,13 +18,8 @@ public class MeetingClass {
 
     public String starttimeL, locationL, nameL;
 
-    FirebaseDatabase database;
-    DatabaseReference myRef;
-
 
     public MeetingClass(){
-
-
 
     }
 
@@ -33,8 +28,6 @@ public class MeetingClass {
         this.nameL = nameL;
         this.starttimeL = starttime;
         this.locationL = location;
-
-
 
     }
 
@@ -47,8 +40,6 @@ public class MeetingClass {
     public String getLocationL() {
         return locationL;
     }
-
-
 
 
 

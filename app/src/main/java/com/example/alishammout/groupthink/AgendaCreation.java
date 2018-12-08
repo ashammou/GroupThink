@@ -83,20 +83,6 @@ public class AgendaCreation extends Activity implements View.OnClickListener{
 
     }
 
-
-
-    private void initaddagendas(String acedit1, String acedit2) {
-
-        //Receive object data from firebase below are just a text
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference addRef = database.getReference();
-
-        agenda.add(new AgendaItemsClass(acedit1, acedit2));
-        addRef.child("AgendaItems").setValue(agenda);
-
-
-    }
-
     private void recyclerviewadapter() {
 
         RecyclerView recyclerViewAC = findViewById(R.id.recyclerVAC);
@@ -120,7 +106,6 @@ public class AgendaCreation extends Activity implements View.OnClickListener{
 
             String acedit1local = acedit1.getText().toString();
             String acedit2local = acedit2.getText().toString();
-            initaddagendas(acedit1local, acedit2local);
 
         }
 
