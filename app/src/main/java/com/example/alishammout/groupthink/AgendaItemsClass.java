@@ -23,10 +23,6 @@ public class AgendaItemsClass extends Activity{
 
     public AgendaItemsClass() {
 
-        descriptionL = "";
-        notesL = "";
-
-
 
     }
 
