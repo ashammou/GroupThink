@@ -6,9 +6,13 @@
 
     <TextView
         android:id="@+id/textViewSelectGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="308dp"
+        android:layout_height="30dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="Group Name" />
+        android:gravity="center_vertical|center_horizontal"
+        android:text="Group Name"
+        android:background="@color/Groupthink"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 </RelativeLayout>
