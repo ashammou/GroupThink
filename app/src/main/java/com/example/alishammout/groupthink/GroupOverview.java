@@ -87,38 +87,7 @@ public class GroupOverview extends Activity implements View.OnClickListener {
     public void onClick(View v) {
         if (v == buttonAddGroup) {
 
-            FirebaseDatabase database = FirebaseDatabase.getInstance();
-            DatabaseReference myRef = database.getReference();
-
-            ArrayList<String> dummy = new ArrayList<>();
-            MeetingClass dummymeeting = new MeetingClass("12:00", "name", "location" );
-            ArrayList<AgendaItemsClass>agenda = new ArrayList<>();
-            AgendaItemsClass dummyagenda = new AgendaItemsClass("notesl", "descriptionl");
-            AgendaItemsClass dummyagenda2 = new AgendaItemsClass("notes2", "description2");
-            AgendaItemsClass dummyagenda3 = new AgendaItemsClass("notes3", "description3");
-            agenda.add(dummyagenda);
-            agenda.add(dummyagenda2);
-            agenda.add(dummyagenda3);
-
-
-
-
-            String groupname = "TO426";
-            String meetingname = "MeetingNow";
-            String agendaname = "Agenda For Meeting";
-
-            dummy.add("bob1@bob.com");
-            dummy.add("bob2@bob.com");
-            dummy.add("bob3@bob.com");
-
-            myRef.child("Groups").setValue(new GroupClass(dummy, groupname));
-            myRef.child("Groups").child(groupname).setValue(dummymeeting);
-            myRef.child("Groups").child(groupname).child(meetingname).child(agendaname).setValue(agenda);
-
-
-
-
-            startActivity(new Intent(GroupOverview.this, MainActivity.class));
+            startActivity(new Intent(GroupOverview.this, AddGroup.class));
         }
     }
 }

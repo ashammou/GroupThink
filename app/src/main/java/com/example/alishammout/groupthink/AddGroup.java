@@ -7,13 +7,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
-public class    AddGroup extends Activity implements View.OnClickListener {
+public class   AddGroup extends Activity implements View.OnClickListener {
 
     private EditText addGroup, addPeopletoGroup;
     private Button addPersonB, buttonAddGroup;
@@ -21,8 +22,6 @@ public class    AddGroup extends Activity implements View.OnClickListener {
     private String groupName = "";
     public ArrayList<String> usersArray = new ArrayList<>();
     private String addedUser = "";
-
-
 
 
     @Override
@@ -36,35 +35,21 @@ public class    AddGroup extends Activity implements View.OnClickListener {
         addPersonB = findViewById(R.id.button2);
 
         addPersonB.setOnClickListener(this);
-        buttonAddGroup = findViewById(R.id.buttonAddGroup);
+        buttonAddGroup = findViewById(R.id.doneButton);
         buttonAddGroup.setOnClickListener(this);
 
 
-
-    }
-
-/*
-    private void initaddGUsers(String nameofuser) {
-
-        //the below is an empty string since we should insert the user that the group is in
-        ArrayList<String> groupsUserIsIn = new ArrayList<>();
-        //Receive object data from firebase below are just a text
-        // it should look to the database to find the user based off of username and retrieve object of user class
-        usersArray.add(new ArrayList<String>(usersArray));
-
-        recyclerviewadapter();
     }
 
     private void recyclerviewadapter() {
 
         RecyclerView recyclerView = findViewById(R.id.addgRV);
         RecyclerViewAdapterAddGroup recyclerViewAdapterAddGroup = new RecyclerViewAdapterAddGroup(
-                addGUsers, this);
+                usersArray, this);
         recyclerView.setAdapter(recyclerViewAdapterAddGroup);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
     }
-*/
 
     @Override
     public void onClick(View v) {
@@ -73,26 +58,32 @@ public class    AddGroup extends Activity implements View.OnClickListener {
 
         if (v == buttonAddGroup) {
 
-            currentGroup.setGroupname(groupName);
-            currentGroup.setUsersInGroup(usersArray);
+            if (groupName.equals("") ) {
+
+                Toast.makeText(AddGroup.this, "Please enter a group name",
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                currentGroup.setGroupname(groupName);
+                currentGroup.setUsersInGroup(usersArray);
 
 
-            FirebaseDatabase database = FirebaseDatabase.getInstance();
-            DatabaseReference myRef = database.getReference(groupName);
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference(groupName);
+                currentGroup.setGroupname(groupName);
 
-            myRef.setValue(currentGroup);
+                myRef.setValue(currentGroup);
+            }
 
-            //startActivity(new Intent(AddGroup.this, GroupOverview.class));
+            currentGroup = new GroupClass();
         }
 
         else if (v == addPersonB) {
 
             addedUser = addPeopletoGroup.getText().toString();
             usersArray.add(addedUser);
-
-
+            recyclerviewadapter();
+            addPeopletoGroup.setText("");
         }
 
     }
-
 }
