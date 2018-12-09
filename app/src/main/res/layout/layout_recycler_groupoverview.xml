@@ -1,18 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/parentLayoutGroupOverview"
     android:layout_width="match_parent"
     android:layout_height="40dp">
 
     <TextView
         android:id="@+id/textViewSelectGroup"
-        android:layout_width="308dp"
-        android:layout_height="30dp"
+        android:layout_width="253dp"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:background="@color/Groupthink"
         android:gravity="center_vertical|center_horizontal"
         android:text="Group Name"
-        android:background="@color/Groupthink"
         android:textSize="18sp"
         android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="36dp"
+        android:layout_height="29dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="7dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="4dp"
+        app:srcCompat="@drawable/GLogo" />
 </RelativeLayout>

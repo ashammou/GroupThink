@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWHITE"
     tools:context=".AddGroup">
 
     <EditText
@@ -12,12 +13,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="78dp"
+        android:layout_marginTop="71dp"
         android:ems="10"
         android:gravity="center_horizontal"
         android:hint="Add People To Group..."
-        android:inputType="textPersonName"
-        android:textStyle="italic" />
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/addGroupName"
@@ -26,24 +26,28 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginLeft="53dp"
         android:layout_marginTop="20dp"
         android:ems="10"
         android:gravity="center_horizontal"
         android:hint="Type New Group Name..."
         android:inputType="textPersonName"
-        android:textStyle="bold|italic" />
+        android:textAllCaps="false"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="38dp"
-        android:layout_height="37dp"
+        android:layout_width="34dp"
+        android:layout_height="28dp"
         android:layout_alignTop="@+id/addPeopletoGroup"
-        android:layout_marginTop="1dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginLeft="9dp"
+        android:layout_marginTop="8dp"
         android:layout_toEndOf="@+id/addPeopletoGroup"
-        android:text="+"
-        android:layout_toRightOf="@+id/addPeopletoGroup" />
+        android:layout_toRightOf="@+id/addPeopletoGroup"
+        android:background="@color/Groupthink"
+        android:text="+" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/addgRV"
@@ -56,14 +60,27 @@
 
     <Button
         android:id="@+id/doneButton"
-        android:layout_width="wrap_content"
-        android:layout_height="37dp"
+        android:layout_width="99dp"
+        android:layout_height="34dp"
         android:layout_alignBottom="@+id/addGroupName"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginEnd="138dp"
-        android:layout_marginRight="138dp"
-        android:layout_marginBottom="-101dp"
-        android:text="Add group" />
+        android:layout_marginEnd="141dp"
+        android:layout_marginRight="141dp"
+        android:layout_marginBottom="-93dp"
+        android:background="@color/Groupthink"
+        android:text="Add group"
+        android:textAllCaps="true"
+        android:textSize="14sp" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="36dp"
+        android:layout_height="33dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="8dp"
+        android:layout_toStartOf="@+id/addPeopletoGroup"
+        android:src="@drawable/GLogo" />
 
 </RelativeLayout>
