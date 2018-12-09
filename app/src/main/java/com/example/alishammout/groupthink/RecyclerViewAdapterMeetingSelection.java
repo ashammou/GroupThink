@@ -39,6 +39,7 @@ public class RecyclerViewAdapterMeetingSelection extends RecyclerView.Adapter<Re
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, MeetingLayout.class);
                 intent.putExtra("passed_meeting", groupMeetings.get(i));
+                intent.putExtra("passed_group", "TO429");
                 mContext.startActivity(intent);
             }
         });
