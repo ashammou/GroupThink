@@ -44,9 +44,6 @@ public class   AddGroup extends Activity implements View.OnClickListener {
         buttonAddGroup.setOnClickListener(this);
 
         mAuth = FirebaseAuth.getInstance();
-
-
-
     }
 
     private void recyclerviewadapter() {

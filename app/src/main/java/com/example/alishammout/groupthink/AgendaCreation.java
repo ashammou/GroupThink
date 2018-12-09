@@ -10,8 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -19,11 +17,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class AgendaCreation extends Activity implements View.OnClickListener{
 
     private Button buttonAddAgendaItem, donebuttonAC;
-    private EditText descriptionACreation, notesACreation, editTextTimeACreation;
+    private EditText editTextTimeACreation, editTextItemTitle, editTextNotes;
     private TextView textViewCreatedMeetingName;
     private AgendaItemsClass agendaItem = new AgendaItemsClass();
     private ArrayList<AgendaItemsClass> wholeAgenda = new ArrayList<>();
@@ -32,9 +32,7 @@ public class AgendaCreation extends Activity implements View.OnClickListener{
     //If this is false, the agenda is freshly created and does not need to be updated
     // If true, the RecyclerViewAdapter needs to be updated with already existing Agenda Items
     private Boolean editOrCreate = false;
-
     private String passedGroup, createdmeeting, agendaTitle, agendaDescription, agendaTime;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +41,9 @@ public class AgendaCreation extends Activity implements View.OnClickListener{
 
         buttonAddAgendaItem = findViewById(R.id.buttonAddAgendaItem);
         donebuttonAC = findViewById(R.id.donebuttonAC);
-        descriptionACreation = findViewById(R.id.descriptionACreation);
-        notesACreation = findViewById(R.id.notesACreation);
-        editTextTimeACreation = findViewById(R.id.editTextTimeACreation);
+        editTextItemTitle = findViewById(R.id.editTextItemTitle);
+        editTextNotes = findViewById(R.id.editTextNotes);
+        editTextTimeACreation = findViewById(R.id.editTextTime2);
         textViewCreatedMeetingName = findViewById(R.id.textViewCreatedMeetingName);
 
         buttonAddAgendaItem.setOnClickListener(this);
@@ -55,15 +53,11 @@ public class AgendaCreation extends Activity implements View.OnClickListener{
         createdmeeting = getIntent().getStringExtra("createdMeeting");
         textViewCreatedMeetingName.setText(createdmeeting);
 
-        getAgenda();
+        //getAgenda();
         recyclerviewadapter();
-
-
     }
 
-
     private void getAgenda(){
-
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference agendaRef = database.getReference().child("AgendaItems");
@@ -89,40 +83,49 @@ public class AgendaCreation extends Activity implements View.OnClickListener{
         });
 
 
-
-
-
     }
 
     private void recyclerviewadapter() {
-
         RecyclerView recyclerViewAC = findViewById(R.id.recyclerVAC);
         recyclerViewAdapterAC = new RecyclerViewAdapterAC(
                 wholeAgenda, this);
         //add adapter and LAYOUT MANAGER
         recyclerViewAC.setAdapter(recyclerViewAdapterAC);
         recyclerViewAC.setLayoutManager(new LinearLayoutManager(this));
+    }
 
+    //method for checking valid time format
+    public static boolean isValidTime (String time) {
+        String tester = "[0-9]{2}+:+[0-9]{2}";
+        Pattern pattern = Pattern.compile(tester, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(time);
+        return matcher.matches();
+    }
 
+    public void resetText () {
+        editTextItemTitle.setText("");
+        editTextNotes.setText("");
+        editTextTimeACreation.setText("");
     }
 
     @Override
     public void onClick(View v) {
 
         if (v == donebuttonAC) {
-            startActivity(new Intent(AgendaCreation.this, MeetingCreation.class));
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference myRef = database.getReference(passedGroup);
+            myRef.child("meetings").child(createdmeeting).setValue(wholeAgenda);
+            startActivity(new Intent(AgendaCreation.this, MeetingLayout.class));
         }
 
         if (v == buttonAddAgendaItem) {
 
-            agendaTitle = descriptionACreation.getText().toString();
-            agendaDescription = notesACreation.getText().toString();
+            agendaTitle = editTextItemTitle.getText().toString();
+            agendaDescription = editTextNotes.getText().toString();
             agendaTime = editTextTimeACreation.getText().toString();
             agendaItem = new AgendaItemsClass(agendaTitle, agendaTime, agendaDescription);
             wholeAgenda.add(agendaItem);
-            descriptionACreation.setText("");
-            notesACreation.setText("");
-            editTextTimeACreation.setText("");
+            resetText();
             recyclerviewadapter();
         }
 

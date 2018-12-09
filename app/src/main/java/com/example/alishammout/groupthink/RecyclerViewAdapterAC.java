@@ -15,12 +15,12 @@ import java.util.ArrayList;
 
 public class RecyclerViewAdapterAC extends RecyclerView.Adapter<RecyclerViewAdapterAC.ViewHolder>{
 
-    private ArrayList<AgendaItemsClass> agenda;
+    private ArrayList<AgendaItemsClass> agendaItem;
     private Context acContext;
 
-    RecyclerViewAdapterAC(ArrayList<AgendaItemsClass> agenda, Context acContext) {
+    RecyclerViewAdapterAC(ArrayList<AgendaItemsClass> agendaItem, Context acContext) {
 
-        this.agenda = agenda;
+        this.agendaItem = agendaItem;
         this.acContext = acContext;
 
     }
@@ -38,33 +38,30 @@ public class RecyclerViewAdapterAC extends RecyclerView.Adapter<RecyclerViewAdap
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        viewHolder.agendaAClocal.setText(agenda.get(i).getDescriptionL());
-        viewHolder.agendaANlocal.setText(agenda.get(i).getNotesL());
-        viewHolder.editTextNewTime.setText(agenda.get(i).getTimeL());
+        viewHolder.textViewTitle.setText(agendaItem.get(i).getDescriptionL());
+        viewHolder.textViewAgendaNotes.setText(agendaItem.get(i).getNotesL());
+        viewHolder.editTextNewTime.setText(agendaItem.get(i).getTimeL());
     }
 
     @Override
     public int getItemCount() {
-        return agenda.size();
+        return agendaItem.size();
     }
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        EditText agendaAClocal;
-        EditText agendaANlocal;
+        TextView textViewTitle, textViewAgendaNotes;
         EditText editTextNewTime;
-
         RelativeLayout parentLayout;
-
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-       agendaAClocal = itemView.findViewById(R.id.agendaCT);
-       agendaANlocal = itemView.findViewById(R.id.agendaCN);
-       editTextNewTime = itemView.findViewById(R.id.editTextNewTime);
+            textViewTitle = itemView.findViewById(R.id.textViewTitle);
+            textViewAgendaNotes = itemView.findViewById(R.id.textViewAgendaNotes);
+            editTextNewTime = itemView.findViewById(R.id.editTextNewTime);
 
-       parentLayout = itemView.findViewById(R.id.parentLayoutagendaC);
+            parentLayout = itemView.findViewById(R.id.parentLayoutagendaC);
         }
     }
 

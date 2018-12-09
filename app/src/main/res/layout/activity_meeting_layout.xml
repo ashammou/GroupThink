@@ -6,25 +6,106 @@
     android:layout_height="match_parent"
     tools:context=".MeetingLayout">
 
+    <View
+        android:id="@+id/divider4"
+        android:layout_width="match_parent"
+        android:layout_below="@id/meetingNameText"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider" />
+
     <TextView
         android:id="@+id/meetingNameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="17dp"
+        android:layout_margin="15dp"
         tools:text="Meeting Name Here" />
 
     <View
         android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="60dp"
+        android:layout_below="@id/tableMeetingLayout"
         android:background="?android:attr/listDivider" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerViewMeetingLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/divider"/>
+
+
+    <TableLayout
+        android:id="@+id/tableMeetingLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/meetingNameText"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/textViewTTime"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginLeft="10dp"
+                android:text="Time:" />
+
+            <TextView
+                android:id="@+id/textViewShowTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Time here" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/textViewTLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginLeft="10dp"
+                android:text="Location:" />
+
+            <TextView
+                android:id="@+id/textViewShowLoction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Location here" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/textViewTMembers"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginLeft="10dp"
+                android:text="Members:" />
+
+            <TextView
+                android:id="@+id/textViewShowMember"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Members here" />
+
+        </TableRow>
+    </TableLayout>
 
 </RelativeLayout>

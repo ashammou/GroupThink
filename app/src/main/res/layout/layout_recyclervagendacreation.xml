@@ -1,47 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/parentLayoutagendaC">
 
     <EditText
-        android:id="@+id/agendaCT"
-        android:layout_width="288dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="13dp"
-        android:layout_marginLeft="13dp"
-        android:layout_marginTop="13dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Topic Name" />
-
-    <EditText
-        android:id="@+id/agendaCN"
-        android:layout_width="309dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginRight="25dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Notes" />
-
-    <EditText
         android:id="@+id/editTextNewTime"
-        android:layout_width="50dp"
+        android:layout_width="70dp"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/agendaCT"
-        android:layout_toRightOf="@+id/agendaCT"
-        android:layout_margin="5dp"
-        android:layout_alignBaseline="@+id/agendaCT"
+        android:layout_alignRight="@id/textViewAgendaNotes"
+        android:layout_alignBaseline="@+id/textViewTitle"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="" />
+
+    <TextView
+        android:id="@+id/textViewAgendaNotes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:text="TextView"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="250dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_alignLeft="@id/textViewAgendaNotes"
+        android:text="TextView"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
 </RelativeLayout>

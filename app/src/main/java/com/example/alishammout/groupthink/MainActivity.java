@@ -28,10 +28,6 @@ import com.google.firebase.database.ValueEventListener;
 public class MainActivity extends Activity implements View.OnClickListener{
 
     private FirebaseAuth mAuth;
-    private FirebaseAuth.AuthStateListener mAuthListener;
-    private FirebaseDatabase Logindatabase;
-    private DatabaseReference LoginRef;
-
     private EditText enterUsername, enterPassword;
     private Button loginButton, accountB;
     private String UserID;
@@ -92,7 +88,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Intent intent = new Intent(
-                                    MainActivity.this, GroupOverview.class);
+                                    MainActivity.this, MeetingLayout.class);
                             Toast.makeText(MainActivity.this,
                                     "Login successful",
                                     Toast.LENGTH_SHORT).show();
@@ -110,11 +106,8 @@ public class MainActivity extends Activity implements View.OnClickListener{
     @Override
     public void onClick(View v) {
 
-        String password, email;
-
-        password = enterPassword.getText().toString();
-        email = enterUsername.getText().toString();
-
+        String password = enterPassword.getText().toString();
+        String email = enterUsername.getText().toString();
 
         if (v == accountB) {
 
