@@ -57,34 +57,6 @@ public class AgendaCreation extends Activity implements View.OnClickListener{
         recyclerviewadapter();
     }
 
-    private void getAgenda(){
-
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference agendaRef = database.getReference().child("AgendaItems");
-
-        agendaRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                for(DataSnapshot child: dataSnapshot.getChildren()) {
-
-                    AgendaItemsClass agenda1 = child.getValue(AgendaItemsClass.class);
-                    //agendaItem.add(agenda1);
-
-
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-
-    }
-
     private void recyclerviewadapter() {
         RecyclerView recyclerViewAC = findViewById(R.id.recyclerVAC);
         recyclerViewAdapterAC = new RecyclerViewAdapterAC(
@@ -116,6 +88,7 @@ public class AgendaCreation extends Activity implements View.OnClickListener{
             DatabaseReference myRef = database.getReference(passedGroup);
             myRef.child("meetings").child(createdmeeting).setValue(wholeAgenda);
             startActivity(new Intent(AgendaCreation.this, MeetingLayout.class));
+
         }
 
         if (v == buttonAddAgendaItem) {
@@ -124,7 +97,10 @@ public class AgendaCreation extends Activity implements View.OnClickListener{
             agendaDescription = editTextNotes.getText().toString();
             agendaTime = editTextTimeACreation.getText().toString();
             agendaItem = new AgendaItemsClass(agendaTitle, agendaTime, agendaDescription);
+
             wholeAgenda.add(agendaItem);
+
+
             resetText();
             recyclerviewadapter();
         }

@@ -17,8 +17,10 @@ public class RecyclerViewAdapterMeetingSelection extends RecyclerView.Adapter<Re
 
     private ArrayList<String> groupMeetings;
     private Context mContext;
+    private String grouptopass;
 
-    RecyclerViewAdapterMeetingSelection(ArrayList<String> groupMeetings, Context mContext) {
+    RecyclerViewAdapterMeetingSelection(String grouptopass, ArrayList<String> groupMeetings, Context mContext) {
+        this.grouptopass = grouptopass;
         this.groupMeetings = groupMeetings;
         this.mContext = mContext;
     }
@@ -39,6 +41,7 @@ public class RecyclerViewAdapterMeetingSelection extends RecyclerView.Adapter<Re
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, MeetingLayout.class);
                 intent.putExtra("passed_meeting", groupMeetings.get(i));
+                intent.putExtra("passed_group_from_meeting_selection", grouptopass);
                 mContext.startActivity(intent);
             }
         });

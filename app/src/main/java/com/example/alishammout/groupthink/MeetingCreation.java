@@ -9,11 +9,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class MeetingCreation extends Activity implements View.OnClickListener{
 
@@ -33,7 +30,7 @@ public class MeetingCreation extends Activity implements View.OnClickListener{
         editTextLocation = findViewById(R.id.editTextLocation);
         editTextMeetingName = findViewById(R.id.editTextMeetingName);
         editTextMeetingTime = findViewById(R.id.editTextMeetingTime);
-        buttonAddAgenda = findViewById(R.id.buttonAddMeeting);
+        buttonAddAgenda = findViewById(R.id.AddMeeting);
 
         buttonAddAgenda.setOnClickListener(this);
 
