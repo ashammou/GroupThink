@@ -25,10 +25,10 @@ import java.util.ArrayList;
 public class MeetingLayout extends Activity implements View.OnClickListener {
 
     private String currentMeeting, currentGroup;
-    private TextView meetingNameText, textViewTTime, textViewTLocation,
-            textViewTMembers, textViewShowTime,textViewShowLoction, textViewShowMember;
+    private TextView meetingNameText, textViewShowTime,textViewShowLoction, textViewShowMember;
     private RecyclerViewAdapterMeetingLayout recyclerViewAdapterMeetingLayout;
     private ArrayList<AgendaItemsClass> wholeAgenda = new ArrayList<>();
+    private MeetingClass currentMeetingClass = new MeetingClass();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,22 +38,38 @@ public class MeetingLayout extends Activity implements View.OnClickListener {
         currentGroup = getIntent().getStringExtra("passed_group");
 
         meetingNameText = findViewById(R.id.meetingNameText);
-        textViewTTime = findViewById(R.id.textViewTTime);
-        textViewTLocation = findViewById(R.id.textViewTLocation);
-        textViewTMembers = findViewById(R.id.textViewTMembers);
         textViewShowTime = findViewById(R.id.textViewShowTime);
         textViewShowLoction = findViewById(R.id.textViewShowLoction);
         textViewShowMember = findViewById(R.id.textViewShowMember);
         meetingNameText.setText(currentMeeting);
 
         getAgenda();
+        setMeetingInfo();
         initRecyclerView ();
+    }
+
+    public void setMeetingInfo() {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference(currentGroup);
+        myRef.child("meetings").child(currentMeeting).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                currentMeetingClass = dataSnapshot.getValue(MeetingClass.class);
+                textViewShowTime.setText(currentMeetingClass.getStarttimeL());
+                textViewShowLoction.setText(currentMeetingClass.getLocationL());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     private void getAgenda() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference(currentGroup);
-        myRef.child("meetings").child(currentMeeting).addValueEventListener(new ValueEventListener() {
+        myRef.child("meetings").child(currentMeeting).child("AgendaItems").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
