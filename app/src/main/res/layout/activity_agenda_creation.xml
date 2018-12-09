@@ -18,7 +18,7 @@
         android:shadowColor="#000000"
         android:shadowDx="0"
         android:shadowDy="0"
-        android:shadowRadius="5"
+        android:shadowRadius="0"
         android:textSize="24sp" />
 
     <android.support.v7.widget.RecyclerView
@@ -45,7 +45,7 @@
         android:shadowColor="#000000"
         android:shadowDx="0"
         android:shadowDy="0"
-        android:shadowRadius="5"
+        android:shadowRadius="0"
         android:text="Done" />
 
     <View
@@ -76,7 +76,7 @@
         android:shadowColor="#000000"
         android:shadowDx="0"
         android:shadowDy="0"
-        android:shadowRadius="5"
+        android:shadowRadius="0"
         android:text="name"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -129,6 +129,6 @@
         android:layout_marginStart="9dp"
         android:layout_marginLeft="9dp"
         android:layout_marginTop="9dp"
-        android:src="@drawable/GLogo" />
+        android:src="@drawable/glogo" />
 
 </RelativeLayout>

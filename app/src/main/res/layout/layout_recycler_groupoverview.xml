@@ -16,7 +16,7 @@
         android:shadowColor="#000000"
         android:shadowDx="0"
         android:shadowDy="0"
-        android:shadowRadius="5"
+        android:shadowRadius="0"
         android:text="Group Name"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -31,5 +31,5 @@
         android:layout_marginStart="7dp"
         android:layout_marginLeft="7dp"
         android:layout_marginTop="4dp"
-        app:srcCompat="@drawable/GLogo" />
+        app:srcCompat="@drawable/glogo" />
 </RelativeLayout>

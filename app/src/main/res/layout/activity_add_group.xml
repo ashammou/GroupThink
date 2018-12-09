@@ -54,7 +54,7 @@
         android:shadowColor="#000000"
         android:shadowDx="0"
         android:shadowDy="0"
-        android:shadowRadius="5"
+        android:shadowRadius="0"
         android:text="+" />
 
     <android.support.v7.widget.RecyclerView
@@ -82,7 +82,7 @@
         android:shadowColor="#000000"
         android:shadowDx="0"
         android:shadowDy="0"
-        android:shadowRadius="5"
+        android:shadowRadius="0"
         android:text="Add group"
         android:textAllCaps="true"
         android:textColor="@color/common_google_signin_btn_text_dark_focused"
@@ -99,6 +99,6 @@
         android:layout_alignParentLeft="true"
         android:layout_toStartOf="@+id/addPeopletoGroup"
         android:layout_toLeftOf="@+id/addPeopletoGroup"
-        android:src="@drawable/GLogo" />
+        android:src="@drawable/glogo" />
 
 </RelativeLayout>

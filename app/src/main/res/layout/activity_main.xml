@@ -17,7 +17,7 @@
         android:shadowColor="#000000"
         android:shadowDx="0"
         android:shadowDy="0"
-        android:shadowRadius="5"
+        android:shadowRadius="0"
         android:text="Login"
         />
 
@@ -54,7 +54,7 @@
         android:shadowColor="#000000"
         android:shadowDx="0"
         android:shadowDy="0"
-        android:shadowRadius="5"
+        android:shadowRadius="0"
         android:text="Register" />
 
     <EditText

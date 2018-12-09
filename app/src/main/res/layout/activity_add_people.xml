@@ -21,7 +21,7 @@
         android:shadowColor="#000000"
         android:shadowDx="0"
         android:shadowDy="0"
-        android:shadowRadius="5"
+        android:shadowRadius="0"
         android:text="Done"
         android:textAllCaps="false" />
 
@@ -75,7 +75,7 @@
         android:shadowColor="#000000"
         android:shadowDx="0"
         android:shadowDy="0"
-        android:shadowRadius="5"
+        android:shadowRadius="0"
         android:text="+" />
 
 
@@ -93,7 +93,7 @@
         android:shadowColor="#000000"
         android:shadowDx="0"
         android:shadowDy="0"
-        android:shadowRadius="5"
+        android:shadowRadius="0"
         android:text="Cancel"
         android:textAllCaps="false" />
 
@@ -111,6 +111,6 @@
         android:layout_height="29dp"
         android:layout_above="@+id/doneButton"
         android:layout_marginBottom="-40dp"
-        android:src="@drawable/GLogo" />
+        android:src="@drawable/glogo" />
 
 </RelativeLayout>
