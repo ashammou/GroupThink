@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -21,12 +22,18 @@ import java.util.ArrayList;
 
 public class AgendaCreation extends Activity implements View.OnClickListener{
 
-    private Button agendaB, donebuttonAC;
-    private EditText acedit1, acedit2;
-    FirebaseAuth mauth = FirebaseAuth.getInstance();
-
-    private ArrayList<AgendaItemsClass> agenda;
+    private Button buttonAddAgendaItem, donebuttonAC;
+    private EditText descriptionACreation, notesACreation, editTextTimeACreation;
+    private TextView textViewCreatedMeetingName;
+    private AgendaItemsClass agendaItem = new AgendaItemsClass();
+    private ArrayList<AgendaItemsClass> wholeAgenda = new ArrayList<>();
     private RecyclerViewAdapterAC recyclerViewAdapterAC;
+
+    //If this is false, the agenda is freshly created and does not need to be updated
+    // If true, the RecyclerViewAdapter needs to be updated with already existing Agenda Items
+    private Boolean editOrCreate = false;
+
+    private String passedGroup, createdmeeting, agendaTitle, agendaDescription, agendaTime;
 
 
     @Override
@@ -34,15 +41,20 @@ public class AgendaCreation extends Activity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agenda_creation);
 
-        agendaB = findViewById(R.id.buttonAddAgendaItem);
+        buttonAddAgendaItem = findViewById(R.id.buttonAddAgendaItem);
         donebuttonAC = findViewById(R.id.donebuttonAC);
-        acedit1 = findViewById(R.id.acedit1);
-        acedit2 = findViewById(R.id.acedit2);
+        descriptionACreation = findViewById(R.id.descriptionACreation);
+        notesACreation = findViewById(R.id.notesACreation);
+        editTextTimeACreation = findViewById(R.id.editTextTimeACreation);
+        textViewCreatedMeetingName = findViewById(R.id.textViewCreatedMeetingName);
 
-        agendaB.setOnClickListener(this);
+        buttonAddAgendaItem.setOnClickListener(this);
         donebuttonAC.setOnClickListener(this);
 
-        agenda = new ArrayList<>();
+        passedGroup = getIntent().getStringExtra("passed_group");
+        createdmeeting = getIntent().getStringExtra("createdMeeting");
+        textViewCreatedMeetingName.setText(createdmeeting);
+
         getAgenda();
         recyclerviewadapter();
 
@@ -63,7 +75,7 @@ public class AgendaCreation extends Activity implements View.OnClickListener{
                 for(DataSnapshot child: dataSnapshot.getChildren()) {
 
                     AgendaItemsClass agenda1 = child.getValue(AgendaItemsClass.class);
-                    agenda.add(agenda1);
+                    //agendaItem.add(agenda1);
 
 
                 }
@@ -86,7 +98,7 @@ public class AgendaCreation extends Activity implements View.OnClickListener{
 
         RecyclerView recyclerViewAC = findViewById(R.id.recyclerVAC);
         recyclerViewAdapterAC = new RecyclerViewAdapterAC(
-                agenda, this);
+                wholeAgenda, this);
         //add adapter and LAYOUT MANAGER
         recyclerViewAC.setAdapter(recyclerViewAdapterAC);
         recyclerViewAC.setLayoutManager(new LinearLayoutManager(this));
@@ -101,11 +113,17 @@ public class AgendaCreation extends Activity implements View.OnClickListener{
             startActivity(new Intent(AgendaCreation.this, MeetingCreation.class));
         }
 
-        if (v == agendaB) {
+        if (v == buttonAddAgendaItem) {
 
-            String acedit1local = acedit1.getText().toString();
-            String acedit2local = acedit2.getText().toString();
-
+            agendaTitle = descriptionACreation.getText().toString();
+            agendaDescription = notesACreation.getText().toString();
+            agendaTime = editTextTimeACreation.getText().toString();
+            agendaItem = new AgendaItemsClass(agendaTitle, agendaTime, agendaDescription);
+            wholeAgenda.add(agendaItem);
+            descriptionACreation.setText("");
+            notesACreation.setText("");
+            editTextTimeACreation.setText("");
+            recyclerviewadapter();
         }
 
     }

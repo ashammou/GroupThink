@@ -38,32 +38,32 @@
         android:text="Done" />
 
     <EditText
-        android:id="@+id/acedit1"
+        android:id="@+id/descriptionACreation"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/dividerAddAgendaItem"
         android:layout_alignLeft="@id/buttonAddAgendaItem"
-        android:inputType="textPersonName"
-        android:text="Name" />
+        android:hint="e.g. Introduction"
+        android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/acedit2"
+        android:id="@+id/notesACreation"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/acedit1"
-        android:layout_marginTop="10dp"
-        android:layout_alignLeft="@id/acedit1"
+        android:layout_below="@id/descriptionACreation"
+        android:layout_alignLeft="@id/descriptionACreation"
         android:layout_alignRight="@id/buttonAddAgendaItem"
-        android:inputType="textPersonName"
-        android:text="Name" />
+        android:layout_marginTop="10dp"
+        android:hint="space for notes"
+        android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editTextTimeACreation"
         android:layout_width="10dp"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/acedit1"
-        android:layout_alignBottom="@+id/acedit1"
         android:layout_alignRight="@id/buttonAddAgendaItem"
+        android:layout_alignBottom="@+id/descriptionACreation"
+        android:layout_toRightOf="@id/descriptionACreation"
         android:inputType="textPersonName"
         android:text="Name" />
 
@@ -83,5 +83,14 @@
         android:layout_below="@id/dividerAddAgendaItem"
         android:layout_marginTop="100dp"
         android:background="?android:attr/listDivider" />
+
+    <TextView
+        android:id="@+id/textViewCreatedMeetingName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:text="name" />
 
 </RelativeLayout>

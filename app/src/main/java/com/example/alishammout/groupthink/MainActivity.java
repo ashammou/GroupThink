@@ -68,20 +68,6 @@ public class MainActivity extends Activity implements View.OnClickListener{
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-
-                            /*
-                            // Code to upload java UserClass file to firebase
-                            Logindatabase = FirebaseDatabase.getInstance();
-                            LoginRef = LoginRef.getRef();
-
-                            FirebaseUser currentUser = mAuth.getCurrentUser();
-                            UserID = currentUser.getUid();
-                            ArrayList<String> emptyGroupList = new ArrayList<>();
-                            UserClass newUser = new UserClass(UserID, email, password, emptyGroupList);
-                            LoginRef.child("users").child(UserID).setValue(newUser);
-                            */
-
-
                             Toast.makeText(MainActivity.this,
                                     "Registration successful.", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(
@@ -97,31 +83,6 @@ public class MainActivity extends Activity implements View.OnClickListener{
                     }
                 });
     }
-
-    /*Allows for reading information from database
-    ValueEventListener postListener = new ValueEventListener() {
-        @Override
-        //creates snapshot of database for data extraction
-        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-            //conditional on whether passed reference exists to have snapshot taken
-            if (dataSnapshot.exists()) {
-                //gets value from dataSnapshot from passed reference
-                String post = dataSnapshot.getValue(String.class);
-                //sets layout widget to the value of the reference
-                //example: textViewLookupQuantity.setText(post);
-
-            }
-            else {
-                Toast.makeText(MainActivity.this, "The reference is invalid", Toast.LENGTH_SHORT).show();
-            }
-        }
-
-        @Override
-        public void onCancelled(@NonNull DatabaseError databaseError) {
-
-        }
-    };
-    */
 
     //method for signing in
     public void signIn(String email, String password) {

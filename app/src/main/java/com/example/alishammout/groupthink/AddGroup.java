@@ -15,6 +15,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class   AddGroup extends Activity implements View.OnClickListener {
 
@@ -57,6 +59,14 @@ public class   AddGroup extends Activity implements View.OnClickListener {
 
     }
 
+    //method for checking valid email format
+    public static boolean isEmailValid (String email) {
+        String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
+        Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+
     @Override
     public void onClick(View v) {
 
@@ -70,15 +80,13 @@ public class   AddGroup extends Activity implements View.OnClickListener {
 
                 Toast.makeText(AddGroup.this, "Please enter a group name",
                         Toast.LENGTH_SHORT).show();
+
             } else {
                 currentGroup.setGroupname(groupName);
                 currentGroup.setUsersInGroup(usersArray);
-
-
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference myRef = database.getReference(groupName);
                 currentGroup.setGroupname(groupName);
-
                 myRef.setValue(currentGroup);
             }
 
@@ -88,17 +96,22 @@ public class   AddGroup extends Activity implements View.OnClickListener {
             startActivity(intent);
         }
 
-
-
-
         else if (v == addPersonB) {
 
-            // we assume e that people only put in emails that exist
             addedUser = addPeopletoGroup.getText().toString();
-            usersArray.add(addedUser);
-            recyclerviewadapter();
-            addPeopletoGroup.setText("");
+
+            if (isEmailValid(addedUser)) {
+                // we assume e that people only put in emails that exist
+                usersArray.add(addedUser);
+                recyclerviewadapter();
+                addPeopletoGroup.setText("");
+            } else {
+                Toast.makeText(AddGroup.this, "Please enter a valid email",
+                        Toast.LENGTH_SHORT).show();
+            }
         }
+
+
 
     }
 }

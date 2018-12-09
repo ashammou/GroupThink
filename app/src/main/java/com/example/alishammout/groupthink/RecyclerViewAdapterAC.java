@@ -38,15 +38,13 @@ public class RecyclerViewAdapterAC extends RecyclerView.Adapter<RecyclerViewAdap
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        viewHolder.agendaAClocal.setText(agenda.get(i).descriptionL);
-        viewHolder.agendaANlocal.setText(agenda.get(i).notesL);
-
+        viewHolder.agendaAClocal.setText(agenda.get(i).getDescriptionL());
+        viewHolder.agendaANlocal.setText(agenda.get(i).getNotesL());
+        viewHolder.editTextNewTime.setText(agenda.get(i).getTimeL());
     }
 
     @Override
     public int getItemCount() {
-
-
         return agenda.size();
     }
 
@@ -55,6 +53,7 @@ public class RecyclerViewAdapterAC extends RecyclerView.Adapter<RecyclerViewAdap
 
         EditText agendaAClocal;
         EditText agendaANlocal;
+        EditText editTextNewTime;
 
         RelativeLayout parentLayout;
 
@@ -63,16 +62,10 @@ public class RecyclerViewAdapterAC extends RecyclerView.Adapter<RecyclerViewAdap
             super(itemView);
        agendaAClocal = itemView.findViewById(R.id.agendaCT);
        agendaANlocal = itemView.findViewById(R.id.agendaCN);
+       editTextNewTime = itemView.findViewById(R.id.editTextNewTime);
 
        parentLayout = itemView.findViewById(R.id.parentLayoutagendaC);
-
-
-
         }
     }
-
-
-
-
 
 }

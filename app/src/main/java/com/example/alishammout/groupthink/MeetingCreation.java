@@ -55,6 +55,11 @@ public class MeetingCreation extends Activity implements View.OnClickListener{
             DatabaseReference myRef = database.getReference(passedGroup);
             myRef.child("meetings").child(meetingname).setValue(createMeeting);
 
+            Intent intent = new Intent(MeetingCreation.this, AgendaCreation.class);
+            intent.putExtra("createdMeeting", meetingname);
+            intent.putExtra("passed_group", passedGroup);
+            startActivity(intent);
+
         }
 
     }
