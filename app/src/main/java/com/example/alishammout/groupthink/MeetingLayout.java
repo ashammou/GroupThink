@@ -28,6 +28,7 @@ public class MeetingLayout extends Activity implements View.OnClickListener {
     private TextView meetingNameText, textViewShowTime,textViewShowLoction, textViewShowMember;
     private RecyclerViewAdapterMeetingLayout recyclerViewAdapterMeetingLayout;
     private ArrayList<AgendaItemsClass> wholeAgenda = new ArrayList<>();
+    private ArrayList<String> Members = new ArrayList<>();
     private MeetingClass currentMeetingClass = new MeetingClass();
 
     @Override
@@ -51,12 +52,35 @@ public class MeetingLayout extends Activity implements View.OnClickListener {
     public void setMeetingInfo() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference(currentGroup);
+
+        //updates Time and Location
         myRef.child("meetings").child(currentMeeting).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 currentMeetingClass = dataSnapshot.getValue(MeetingClass.class);
                 textViewShowTime.setText(currentMeetingClass.getStarttimeL());
                 textViewShowLoction.setText(currentMeetingClass.getLocationL());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        //updates Member List
+        //still needs to display the Array
+        //maybe a single textViewShowMember isn't the best solution? (also in terms of looks)
+        myRef.child("usersInGroup").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                for(DataSnapshot child : dataSnapshot.getChildren()) {
+                    String member = child.getValue(String.class);
+                    Members.add(member);
+                }
+
+
             }
 
             @Override
