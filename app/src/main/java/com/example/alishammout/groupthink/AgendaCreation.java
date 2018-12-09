@@ -3,7 +3,6 @@ package com.example.alishammout.groupthink;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -35,7 +34,7 @@ public class AgendaCreation extends Activity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agenda_creation);
 
-        agendaB = findViewById(R.id.agendaB);
+        agendaB = findViewById(R.id.buttonAddAgendaItem);
         donebuttonAC = findViewById(R.id.donebuttonAC);
         acedit1 = findViewById(R.id.acedit1);
         acedit2 = findViewById(R.id.acedit2);

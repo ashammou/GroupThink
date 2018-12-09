@@ -7,7 +7,7 @@
     tools:context=".AgendaCreation">
 
     <Button
-        android:id="@+id/agendaB"
+        android:id="@+id/buttonAddAgendaItem"
         android:layout_width="331dp"
         android:layout_height="46dp"
         android:layout_alignParentTop="true"
@@ -20,10 +20,10 @@
         android:id="@+id/recyclerVAC"
         android:layout_width="match_parent"
         android:layout_height="321dp"
-        android:layout_below="@+id/agendaB"
+        android:layout_below="@+id/dividerAddAgendaItem2"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginTop="108dp" />
+        />
 
     <Button
         android:id="@+id/donebuttonAC"
@@ -39,30 +39,49 @@
 
     <EditText
         android:id="@+id/acedit1"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="19dp"
-        android:layout_marginLeft="19dp"
-        android:layout_marginTop="104dp"
-        android:ems="10"
+        android:layout_below="@id/dividerAddAgendaItem"
+        android:layout_alignLeft="@id/buttonAddAgendaItem"
         android:inputType="textPersonName"
         android:text="Name" />
 
     <EditText
         android:id="@+id/acedit2"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/recyclerVAC"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginStart="65dp"
-        android:layout_marginLeft="65dp"
-        android:layout_marginBottom="-108dp"
-        android:ems="10"
+        android:layout_below="@id/acedit1"
+        android:layout_marginTop="10dp"
+        android:layout_alignLeft="@id/acedit1"
+        android:layout_alignRight="@id/buttonAddAgendaItem"
         android:inputType="textPersonName"
         android:text="Name" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="10dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/acedit1"
+        android:layout_alignBottom="@+id/acedit1"
+        android:layout_alignRight="@id/buttonAddAgendaItem"
+        android:inputType="textPersonName"
+        android:text="Name" />
+
+    <View
+        android:id="@+id/dividerAddAgendaItem"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/buttonAddAgendaItem"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="?android:attr/listDivider" />
+
+    <View
+        android:id="@+id/dividerAddAgendaItem2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/dividerAddAgendaItem"
+        android:layout_marginTop="100dp"
+        android:background="?android:attr/listDivider" />
 
 </RelativeLayout>
