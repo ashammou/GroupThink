@@ -86,7 +86,7 @@ public class AgendaCreation extends Activity implements View.OnClickListener{
         if (v == donebuttonAC) {
             FirebaseDatabase database = FirebaseDatabase.getInstance();
             DatabaseReference myRef = database.getReference(passedGroup);
-            myRef.child("meetings").child(createdmeeting).setValue(wholeAgenda);
+            myRef.child("meetings").child(createdmeeting).child("AgendaItems").setValue(wholeAgenda);
             startActivity(new Intent(AgendaCreation.this, MeetingLayout.class));
 
         }

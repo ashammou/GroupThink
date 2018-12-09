@@ -5,6 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -62,6 +65,30 @@ public class   AddGroup extends Activity implements View.OnClickListener {
         Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater optionsMenuInflater = getMenuInflater();
+        optionsMenuInflater.inflate(R.menu.dropdown_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menuitemGroupSelection:
+                Intent intent1 = new Intent(AddGroup.this, GroupOverview.class);
+                startActivity(intent1);
+            case R.id.menuitemLogout:
+                Intent intent2 = new Intent(AddGroup.this, MainActivity.class);
+                FirebaseAuth.getInstance().signOut();
+                startActivity(intent2);
+                return true;
+
+            default:
+                return false;
+        }
     }
 
     @Override
