@@ -29,7 +29,7 @@ import java.util.ArrayList;
 
 public class GroupOverview extends Activity implements View.OnClickListener {
 
-    private Button buttonAddGroup, button;
+    private Button buttonAddGroup;
     private UserClass user;
     private ArrayList<String> groupsForUser = new ArrayList<>();
     private FirebaseAuth mauth;
@@ -45,31 +45,27 @@ public class GroupOverview extends Activity implements View.OnClickListener {
 
         buttonAddGroup.setOnClickListener(this);
 
-        button = findViewById(R.id.button);
-        button.setOnClickListener(this);
+        getGroups();
+        initRecyclerView();
+    }
 
-
+    public void getGroups () {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference();
-
-
 
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                int num = 0;
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     for (DataSnapshot snapshot2 : snapshot.child("usersInGroup").getChildren()) {
                         String myUser = snapshot2.getValue(String.class);
                         //Toast.makeText(GroupOverview.this, "myUser: " + myUser, Toast.LENGTH_SHORT).show();
                         if (mauth.getCurrentUser().getEmail().equals(myUser)) {
-                            num += 1;
                             groupsForUser.add(snapshot.getKey());
-                            //Toast.makeText(GroupOverview.this, snapshot.getKey(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
-                Toast.makeText(GroupOverview.this, "Num: " + String.valueOf(num), Toast.LENGTH_SHORT).show();
+                recyclerViewAdapterGroupOverview.notifyDataSetChanged();
             }
 
             @Override
@@ -78,7 +74,6 @@ public class GroupOverview extends Activity implements View.OnClickListener {
             }
 
         });
-
     }
 
     @Override
@@ -118,10 +113,6 @@ public class GroupOverview extends Activity implements View.OnClickListener {
         if (v == buttonAddGroup) {
 
             startActivity(new Intent(GroupOverview.this, AddGroup.class));
-        }
-
-        if (v == button) {
-            initRecyclerView();
         }
     }
 }

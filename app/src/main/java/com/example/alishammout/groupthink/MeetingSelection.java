@@ -28,7 +28,7 @@ public class MeetingSelection extends Activity implements View.OnClickListener {
 
     private TextView groupNameText;
 
-    private Button buttonAddMeeting, buttonMM;
+    private Button buttonAddMeeting;
     private ArrayList<String> meetingsIngroup= new ArrayList<>();
     private String passedGroup;
     private RecyclerViewAdapterMeetingSelection recyclerViewAdapterMeetingSelection;
@@ -45,13 +45,16 @@ public class MeetingSelection extends Activity implements View.OnClickListener {
         buttonAddMeeting = findViewById(R.id.AddMeeting);
         buttonAddMeeting.setOnClickListener(this);
 
-        buttonMM = findViewById(R.id.buttonMM);
-        buttonMM.setOnClickListener(this);
+        getMeetings();
+        initializeRecyclerView();
 
+    }
+
+    public void getMeetings () {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference(passedGroup).child("meetings");
 
-        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
@@ -67,7 +70,6 @@ public class MeetingSelection extends Activity implements View.OnClickListener {
 
             }
         });
-
     }
 
     @Override
@@ -112,8 +114,5 @@ public class MeetingSelection extends Activity implements View.OnClickListener {
             startActivity(intent);
         }
 
-        if (view == buttonMM) {
-            initializeRecyclerView();
-        }
     }
 }

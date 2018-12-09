@@ -29,7 +29,6 @@ public class MeetingLayout extends Activity implements View.OnClickListener {
             textViewTMembers, textViewShowTime,textViewShowLoction, textViewShowMember;
     private RecyclerViewAdapterMeetingLayout recyclerViewAdapterMeetingLayout;
     private ArrayList<AgendaItemsClass> wholeAgenda = new ArrayList<>();
-    private Button buttonTest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,9 +36,6 @@ public class MeetingLayout extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_meeting_layout);
         currentMeeting = getIntent().getStringExtra("passed_meeting");
         currentGroup = getIntent().getStringExtra("passed_group");
-
-        buttonTest = findViewById(R.id.updateRCV);
-        buttonTest.setOnClickListener(this);
 
         meetingNameText = findViewById(R.id.meetingNameText);
         textViewTTime = findViewById(R.id.textViewTTime);
@@ -80,7 +76,6 @@ public class MeetingLayout extends Activity implements View.OnClickListener {
         recyclerViewAdapterMeetingLayout = new RecyclerViewAdapterMeetingLayout(wholeAgenda, this);
         recyclerView.setAdapter(recyclerViewAdapterMeetingLayout);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
     }
 
 
@@ -111,11 +106,6 @@ public class MeetingLayout extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-
-        if (view == buttonTest) {
-            getAgenda();
-            //initRecyclerView();
-        }
 
     }
 }
