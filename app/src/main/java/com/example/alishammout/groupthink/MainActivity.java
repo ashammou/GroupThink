@@ -88,7 +88,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Intent intent = new Intent(
-                                    MainActivity.this, MeetingLayout.class);
+                                    MainActivity.this, GroupOverview.class);
                             Toast.makeText(MainActivity.this,
                                     "Login successful",
                                     Toast.LENGTH_SHORT).show();
