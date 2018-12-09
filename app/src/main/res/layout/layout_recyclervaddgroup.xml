@@ -6,16 +6,21 @@
 
     <TextView
         android:id="@+id/addGroupRVuser"
-        android:layout_width="350dp"
-        android:layout_height="45dp"
+        android:layout_width="328dp"
+        android:layout_height="36dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
 
-        android:layout_marginStart="17dp"
-        android:layout_marginLeft="17dp"
-        android:layout_marginTop="19dp"
-        android:gravity="center_horizontal"
+        android:layout_marginStart="27dp"
+        android:layout_marginLeft="27dp"
+        android:layout_marginTop="13dp"
+        android:background="@drawable/button_background"
+        android:gravity="center_vertical|center_horizontal"
+        android:shadowColor="#000000"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
         android:text="addGroupRVuser"
         android:textSize="18sp" />
 </RelativeLayout>

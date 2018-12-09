@@ -17,6 +17,7 @@
         android:ems="10"
         android:gravity="center_horizontal"
         android:hint="Add People To Group..."
+
         android:inputType="textPersonName" />
 
     <EditText
@@ -35,6 +36,7 @@
         android:layout_alignTop="@+id/addPeopletoGroup"
         android:inputType="textPersonName"
         android:textAllCaps="false"
+
         android:textStyle="bold" />
 
     <Button
@@ -83,6 +85,7 @@
         android:shadowRadius="5"
         android:text="Add group"
         android:textAllCaps="true"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
         android:textSize="14sp" />
 
     <ImageView
