@@ -14,6 +14,11 @@
         android:layout_centerHorizontal="true"
         android:layout_margin="10dp"
         android:text="+"
+        android:background="@drawable/button_background"
+        android:shadowColor="#000000"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
         android:textSize="24sp" />
 
     <android.support.v7.widget.RecyclerView
@@ -34,6 +39,11 @@
         android:layout_alignParentRight="true"
         android:layout_marginTop="5dp"
         android:layout_marginRight="10dp"
+        android:background="@drawable/button_background"
+        android:shadowColor="#000000"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
         android:text="Done" />
 
     <View

@@ -26,8 +26,13 @@
     <Button
         android:id="@+id/AddMeeting"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="39dp"
         android:layout_below="@id/divider3"
+        android:background="@drawable/button_background"
+        android:shadowColor="#000000"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
         android:text="Add Meeting" />
 
     <android.support.v7.widget.RecyclerView
