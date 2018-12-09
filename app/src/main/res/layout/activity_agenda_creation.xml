@@ -80,7 +80,7 @@
         android:layout_alignRight="@id/editTextNotes"
         android:ems="10"
         android:hint="00:00"
-        android:inputType="textPersonName"
+        android:inputType="time"
         android:text="" />
 
     <EditText

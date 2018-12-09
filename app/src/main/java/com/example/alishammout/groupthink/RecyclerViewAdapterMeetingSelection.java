@@ -50,12 +50,10 @@ public class RecyclerViewAdapterMeetingSelection extends RecyclerView.Adapter<Re
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView imageView;
         TextView textView;
         RelativeLayout parentLayout;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageView = itemView.findViewById(R.id.imageView4);
             textView = itemView.findViewById(R.id.textView5);
             parentLayout = itemView.findViewById(R.id.parent_layout);
         }

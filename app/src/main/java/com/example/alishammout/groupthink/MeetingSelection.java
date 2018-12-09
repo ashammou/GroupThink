@@ -7,11 +7,15 @@ import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,7 +26,9 @@ import java.util.ArrayList;
 
 public class MeetingSelection extends Activity implements View.OnClickListener {
 
-    private Button backButton, buttonAddMeeting, buttonMM;
+    private TextView groupNameText;
+
+    private Button buttonAddMeeting, buttonMM;
     private ArrayList<String> meetingsIngroup= new ArrayList<>();
     private String passedGroup;
 
@@ -31,14 +37,11 @@ public class MeetingSelection extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meeting_selection);
+        groupNameText = findViewById(R.id.groupNameText);
         passedGroup = getIntent().getStringExtra("passed_group");
+        groupNameText.setText(passedGroup);
 
-        Toast.makeText(this, passedGroup, Toast.LENGTH_SHORT).show();
-
-        backButton = findViewById(R.id.backButton);
         buttonAddMeeting = findViewById(R.id.buttonAddMeeting);
-
-        backButton.setOnClickListener(this);
         buttonAddMeeting.setOnClickListener(this);
 
         buttonMM = findViewById(R.id.buttonMM);
@@ -65,6 +68,31 @@ public class MeetingSelection extends Activity implements View.OnClickListener {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater optionsMenuInflater = getMenuInflater();
+        optionsMenuInflater.inflate(R.menu.dropdown_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menuitemGroupSelection:
+                Intent intent1 = new Intent(MeetingSelection.this, GroupOverview.class);
+                startActivity(intent1);
+                return true;
+            case R.id.menuitemLogout:
+                Intent intent2 = new Intent(MeetingSelection.this, MainActivity.class);
+                FirebaseAuth.getInstance().signOut();
+                startActivity(intent2);
+                return true;
+
+            default:
+                return false;
+        }
+    }
+
 
     private void initializeRecyclerView() {
         RecyclerView recyclerViewMeetingSelection = findViewById(R.id.meetingRecyclerView);
@@ -75,11 +103,7 @@ public class MeetingSelection extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        if (view == backButton) {
-            Intent intent  = new Intent(MeetingSelection.this, GroupOverview.class);
-            startActivity(intent);
-        }
-        
+
         if (view == buttonAddMeeting) {
             Intent intent  = new Intent(MeetingSelection.this, MeetingCreation.class);
             intent.putExtra("passed_group1", passedGroup);

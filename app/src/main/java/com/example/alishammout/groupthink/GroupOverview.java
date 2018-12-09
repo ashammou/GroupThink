@@ -8,6 +8,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -76,6 +79,29 @@ public class GroupOverview extends Activity implements View.OnClickListener {
 
         });
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater optionsMenuInflater = getMenuInflater();
+        optionsMenuInflater.inflate(R.menu.dropdown_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menuitemGroupSelection:
+                return true;
+            case R.id.menuitemLogout:
+                Intent intent2 = new Intent(GroupOverview.this, MainActivity.class);
+                FirebaseAuth.getInstance().signOut();
+                startActivity(intent2);
+                return true;
+
+            default:
+                return false;
+        }
     }
 
 
