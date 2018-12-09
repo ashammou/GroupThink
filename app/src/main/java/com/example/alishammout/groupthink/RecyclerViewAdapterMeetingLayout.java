@@ -34,7 +34,9 @@ public class RecyclerViewAdapterMeetingLayout extends RecyclerView.Adapter<Recyc
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderMeeting viewHolderMeeting, int i) {
-
+        viewHolderMeeting.textViewTitle.setText(wholeAgenda.get(i).getDescriptionL());
+        viewHolderMeeting.textViewAgendaNotes.setText(wholeAgenda.get(i).getNotesL());
+        viewHolderMeeting.editTextNewTime.setText(wholeAgenda.get(i).getTimeL());
     }
 
 

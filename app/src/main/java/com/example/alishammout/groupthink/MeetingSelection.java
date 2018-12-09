@@ -31,6 +31,7 @@ public class MeetingSelection extends Activity implements View.OnClickListener {
     private Button buttonAddMeeting, buttonMM;
     private ArrayList<String> meetingsIngroup= new ArrayList<>();
     private String passedGroup;
+    private RecyclerViewAdapterMeetingSelection recyclerViewAdapterMeetingSelection;
 
 
     @Override
@@ -41,7 +42,7 @@ public class MeetingSelection extends Activity implements View.OnClickListener {
         passedGroup = getIntent().getStringExtra("passed_group");
         groupNameText.setText(passedGroup);
 
-        buttonAddMeeting = findViewById(R.id.buttonAddMeeting);
+        buttonAddMeeting = findViewById(R.id.AddMeeting);
         buttonAddMeeting.setOnClickListener(this);
 
         buttonMM = findViewById(R.id.buttonMM);
@@ -58,6 +59,7 @@ public class MeetingSelection extends Activity implements View.OnClickListener {
 
                     meetingsIngroup.add(dataSnapshot1.getKey());
                 }
+                recyclerViewAdapterMeetingSelection.notifyDataSetChanged();
             }
 
             @Override
@@ -96,7 +98,7 @@ public class MeetingSelection extends Activity implements View.OnClickListener {
 
     private void initializeRecyclerView() {
         RecyclerView recyclerViewMeetingSelection = findViewById(R.id.meetingRecyclerView);
-        RecyclerViewAdapterMeetingSelection recyclerViewAdapterMeetingSelection = new RecyclerViewAdapterMeetingSelection(meetingsIngroup, this);
+        recyclerViewAdapterMeetingSelection = new RecyclerViewAdapterMeetingSelection(passedGroup ,meetingsIngroup, this);
         recyclerViewMeetingSelection.setAdapter(recyclerViewAdapterMeetingSelection);
         recyclerViewMeetingSelection.setLayoutManager(new LinearLayoutManager(this));
     }
