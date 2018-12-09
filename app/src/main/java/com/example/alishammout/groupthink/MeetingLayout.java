@@ -30,18 +30,25 @@ public class MeetingLayout extends Activity implements View.OnClickListener {
     private RecyclerViewAdapterMeetingLayout recyclerViewAdapterMeetingLayout;
     private ArrayList<AgendaItemsClass> wholeAgenda = new ArrayList<>();
     private DatabaseReference parentRef;
+    private Button buttonTest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meeting_layout);
         currentMeeting = getIntent().getStringExtra("passed_meeting");
+        buttonTest = findViewById(R.id.buttonTest);
+        buttonTest.setOnClickListener(this);
 
         // right now we cannot pass the group because this activity is started from a recycler view adapter (RCV)
         // the RCV does not store the current group and therefore we cannot read and save it for the intent
-        //passedGroup = getIntent().getStringExtra("passed_group");
+        // passedGroup = getIntent().getStringExtra("passed_group");
         // FIX: find group key that matches this meeting name (unique)
         // We need the group name to address as a reference when updating the RCV with the Agenda items for that meeting
+        //The line of code below is just an easy fix to see if the rest works:
+        // in this case, "passed_group" is hardcoded as "TO429" (in RCV meeting selection)
+        currentGroup = getIntent().getStringExtra("passed_group");
+
 
         meetingNameText = findViewById(R.id.meetingNameText);
         textViewTTime = findViewById(R.id.textViewTTime);
@@ -55,10 +62,11 @@ public class MeetingLayout extends Activity implements View.OnClickListener {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference();
 
+        /*
         myRef.child("meetings").equalTo(currentMeeting).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                DatabaseReference ref = dataSnapshot.getRef();
+                DatabaseReference ref = ;
                 DatabaseReference parentRef = ref.getParent();
             }
 
@@ -67,13 +75,15 @@ public class MeetingLayout extends Activity implements View.OnClickListener {
 
             }
         });
-
+        */
+        getAgenda();
         initRecyclerView ();
-
     }
 
     private void getAgenda() {
-        parentRef.child("meetings").child(currentMeeting).addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference(currentGroup);
+        myRef.child("meetings").child(currentMeeting).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
@@ -127,6 +137,10 @@ public class MeetingLayout extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+
+        if (view == buttonTest) {
+            getAgenda();
+        }
 
     }
 }
