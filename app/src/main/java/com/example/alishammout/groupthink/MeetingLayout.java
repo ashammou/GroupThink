@@ -30,6 +30,7 @@ public class MeetingLayout extends Activity implements View.OnClickListener {
     private ArrayList<AgendaItemsClass> wholeAgenda = new ArrayList<>();
     private ArrayList<String> Members = new ArrayList<>();
     private MeetingClass currentMeetingClass = new MeetingClass();
+    private Button membersbutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,9 @@ public class MeetingLayout extends Activity implements View.OnClickListener {
         textViewShowLoction = findViewById(R.id.textViewShowLoction);
         textViewShowMember = findViewById(R.id.textViewShowMember);
         meetingNameText.setText(currentMeeting);
+        membersbutton = findViewById(R.id.membersbutton);
+
+        membersbutton.setOnClickListener(this);
 
         getAgenda();
         setMeetingInfo();
@@ -146,6 +150,15 @@ public class MeetingLayout extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+
+        if(view == membersbutton) {
+
+            Intent intent = new Intent(MeetingLayout.this, WhosInGroup.class);
+            intent.putExtra("groupnameMT", currentGroup);
+            startActivity(intent);
+
+
+        }
 
     }
 }
