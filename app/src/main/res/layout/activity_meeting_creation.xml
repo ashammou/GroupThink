@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorscheme1B"
     tools:context=".MeetingCreation">
 
     <View
@@ -23,7 +24,8 @@
         android:layout_marginTop="100dp"
         android:ems="10"
         android:hint="Enter Meeting name here..."
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/editTextMeetingTime"
@@ -34,7 +36,8 @@
         android:layout_marginTop="150dp"
         android:ems="10"
         android:hint="Enter Meeting time here..."
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/AddMeeting"
@@ -48,7 +51,8 @@
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="0"
-        android:text="Add Meeting" />
+        android:text="Add Meeting"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/editTextLocation"
@@ -59,33 +63,36 @@
         android:layout_marginTop="200dp"
         android:ems="10"
         android:hint="Enter Location here..."
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textViewTitle"
-        android:layout_width="172dp"
-        android:layout_height="28dp"
+        android:layout_width="187dp"
+        android:layout_height="38dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/button_background"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/edit_text_layout"
         android:gravity="center_vertical|center_horizontal"
         android:shadowColor="#000000"
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="0"
-        android:text="Create your meeting" />
+        android:text="Create your meeting"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="42dp"
         android:layout_height="26dp"
-        android:layout_alignBottom="@+id/textViewTitle"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginBottom="5dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="9dp"
         android:src="@drawable/glogo" />
 
 

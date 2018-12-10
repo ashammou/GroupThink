@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/colorscheme1B"
     android:id="@+id/parent_layout"
     >
 
@@ -20,7 +21,7 @@
         android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginBottom="15dp"
-        android:background="@drawable/button_background"
+        android:background="@drawable/edit_text_layout"
         android:gravity="center_vertical|center_horizontal"
 
         android:shadowColor="#000000"
@@ -29,7 +30,8 @@
         android:shadowRadius="0"
         android:text="Meeting Name"
         android:textColor="#000"
-        android:textSize="17sp" />
+        android:textSize="17sp"
+        android:textStyle="bold" />
 
     <View
         android:id="@+id/divider5"

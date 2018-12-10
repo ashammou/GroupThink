@@ -6,6 +6,12 @@
     <color name="colorWHITE">#ffffff</color>
     <color name="Groupthink">#FAE48A</color>
     <color name="colorlightBlue">#0DDFFF</color>
-    <color name="colordarkBlue">#1424FF</color>
+    <color name="colordarkBlue">#0500A1</color>
+    <color name="colorYellow">#FFFA61</color>
+    <color name="colorlightGray">#BDBDBD</color>
+    <color name="colorscheme1">#C2DFE3</color>
+    <color name="colorscheme1B">#E0FBFC</color>
+    <color name="colorscheme1C">#253237</color>
+
 
 </resources>

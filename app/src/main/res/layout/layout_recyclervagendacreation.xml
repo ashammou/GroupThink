@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/colorscheme1B"
     android:id="@+id/parentLayoutagendaC">
 
     <EditText
@@ -14,7 +15,7 @@
         android:layout_alignBottom="@+id/textViewTitle"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="0dp"
-        android:background="@drawable/button_background"
+        android:background="@drawable/edit_text_layout"
         android:ems="10"
         android:gravity="center_vertical|center_horizontal|center"
         android:inputType="textPersonName"
@@ -22,7 +23,8 @@
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="0"
-        android:text="" />
+        android:text=""
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textViewAgendaNotes"
@@ -36,14 +38,14 @@
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/button_background"
+        android:background="@drawable/edit_text_layout"
         android:gravity="center_vertical|center_horizontal"
         android:shadowColor="#000000"
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="0"
         android:text="TextView"
-        android:textStyle="italic" />
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textViewTitle"
@@ -51,7 +53,7 @@
         android:layout_height="30dp"
         android:layout_alignLeft="@id/textViewAgendaNotes"
         android:layout_marginTop="10dp"
-        android:background="@drawable/button_background"
+        android:background="@drawable/edit_text_layout"
         android:gravity="center_vertical|center_horizontal"
         android:shadowColor="#000000"
         android:shadowDx="0"

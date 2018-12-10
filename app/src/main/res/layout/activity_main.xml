@@ -4,22 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWHITE"
+    android:background="@color/colorscheme1B"
     tools:context=".MainActivity">
 
     <Button
         android:id="@+id/buttonLogin"
         android:layout_width="100dp"
         android:layout_height="40dp"
-        android:layout_alignLeft="@id/password"
         android:layout_below="@id/password"
+        android:layout_alignLeft="@id/password"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="7dp"
         android:background="@drawable/button_background"
         android:shadowColor="#000000"
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="0"
         android:text="Login"
-        />
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -48,14 +50,17 @@
         android:id="@+id/accountButton"
         android:layout_width="100dp"
         android:layout_height="40dp"
-        android:layout_alignRight="@id/password"
         android:layout_below="@id/password"
+        android:layout_alignEnd="@+id/login"
+        android:layout_alignRight="@id/password"
+        android:layout_marginTop="6dp"
         android:background="@drawable/button_background"
         android:shadowColor="#000000"
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="0"
-        android:text="Register" />
+        android:text="Register"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/password"

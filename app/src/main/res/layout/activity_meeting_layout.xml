@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorscheme1B"
     tools:context=".MeetingLayout">
 
     <View
@@ -25,13 +26,14 @@
         android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginBottom="15dp"
-        android:background="@drawable/button_background"
+        android:background="@drawable/edit_text_layout"
         android:gravity="center_vertical|center_horizontal"
         android:shadowColor="#000000"
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="0"
         android:textSize="18sp"
+        android:textStyle="bold"
         tools:text="Meeting Name Here" />
 
     <View
@@ -71,20 +73,22 @@
                 android:layout_width="84dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
-                android:background="@drawable/button_background"
+                android:background="@drawable/edit_text_layout"
                 android:gravity="center_vertical|center_horizontal"
                 android:shadowColor="#000000"
                 android:shadowDx="0"
                 android:shadowDy="0"
                 android:shadowRadius="0"
-                android:text="Time:" />
+                android:text="Time:"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewShowTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="Time here" />
+                android:text="Time here"
+                android:textStyle="bold" />
 
         </TableRow>
 
@@ -98,20 +102,22 @@
                 android:layout_width="83dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
-                android:background="@drawable/button_background"
+                android:background="@drawable/edit_text_layout"
                 android:gravity="center_vertical|center_horizontal"
                 android:shadowColor="#000000"
                 android:shadowDx="0"
                 android:shadowDy="0"
                 android:shadowRadius="0"
-                android:text="Location:" />
+                android:text="Location:"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewShowLoction"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="Location here" />
+                android:text="Location here"
+                android:textStyle="bold" />
 
         </TableRow>
 
@@ -125,20 +131,22 @@
                 android:layout_width="83dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
-                android:background="@drawable/button_background"
+                android:background="@drawable/edit_text_layout"
                 android:gravity="center_vertical|center_horizontal"
                 android:shadowColor="#000000"
                 android:shadowDx="0"
                 android:shadowDy="0"
                 android:shadowRadius="0"
-                android:text="Members:" />
+                android:text="Members:"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewShowMember"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="Members here" />
+                android:text="Members here"
+                android:textStyle="bold" />
 
         </TableRow>
     </TableLayout>

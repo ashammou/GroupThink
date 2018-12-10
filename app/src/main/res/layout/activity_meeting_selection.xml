@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorscheme1B"
     tools:context=".MeetingSelection">
 
     <View
@@ -16,18 +17,20 @@
 
     <TextView
         android:id="@+id/groupNameText"
-        android:layout_width="143dp"
-        android:layout_height="29dp"
+        android:layout_width="146dp"
+        android:layout_height="37dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/button_background"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/edit_text_layout"
         android:gravity="center_vertical|center_horizontal"
         android:shadowColor="#000000"
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="0"
-        android:text="Group Name" />
+        android:text="Group Name"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/AddMeeting"
@@ -39,7 +42,8 @@
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="0"
-        android:text="Add Meeting" />
+        android:text="Add Meeting"
+        android:textStyle="bold" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/meetingRecyclerView"
