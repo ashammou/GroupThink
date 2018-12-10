@@ -21,6 +21,7 @@ import java.util.ArrayList;
 public class WhosInGroup extends Activity implements View.OnClickListener{
 
     private String currentgroup;
+    private String currentmeeting;
     private EditText whoaddpeople;
     private Button whoaddPerson, whoisindone;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -38,6 +39,7 @@ public class WhosInGroup extends Activity implements View.OnClickListener{
         whoisindone.setOnClickListener(this);
         whoaddPerson.setOnClickListener(this);
         currentgroup = getIntent().getStringExtra("groupnameMT");
+        currentmeeting = getIntent().getStringExtra("meetingnameMT");
 
         DatabaseReference myRef = database.getReference();
 
@@ -47,7 +49,7 @@ public class WhosInGroup extends Activity implements View.OnClickListener{
 
                 for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren()) {
 
-                    String localuser = dataSnapshot1.getKey();
+                    String localuser = dataSnapshot1.getValue(String.class);
                     listofusers.add(localuser);
 
                 }
@@ -99,6 +101,8 @@ public class WhosInGroup extends Activity implements View.OnClickListener{
         else if(v == whoisindone) {
 
             Intent intent = new Intent(WhosInGroup.this, MeetingLayout.class);
+            intent.putExtra("passed_group", currentgroup);
+            intent.putExtra("passed_meeting", currentmeeting);
             startActivity(intent);
 
         }

@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class RecyclerViewAdapterWIG extends RecyclerView.Adapter<RecyclerViewAdapterWIG.ViewHolder> {
+public class RecyclerViewAdapterWIG extends RecyclerView.Adapter<RecyclerViewAdapterWIG.ViewHolderWIG> {
 
     private ArrayList<String> usersingroup = new ArrayList<>();
     private Context mContext;
@@ -23,22 +23,22 @@ public class RecyclerViewAdapterWIG extends RecyclerView.Adapter<RecyclerViewAda
 
         this.usersingroup = usersingroup;
         this.mContext = mContext;
-
-
     }
 
 
     @NonNull
     @Override
-    public RecyclerViewAdapterWIG.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.layout_recycler_view_who_is_in_group, viewGroup, false);
-        RecyclerViewAdapterWIG.ViewHolder viewHolder = new RecyclerViewAdapterWIG.ViewHolder(view);
-        return viewHolder;
+    public ViewHolderWIG onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        View view = LayoutInflater.from(viewGroup.getContext())
+                .inflate(R.layout.layout_recycler_view_who_is_in_group, viewGroup, false);
+        RecyclerViewAdapterWIG.ViewHolderWIG viewHolderWIG= new ViewHolderWIG(view);
+        return  viewHolderWIG;
     }
 
-
     @Override
-    public void onBindViewHolder(@NonNull RecyclerViewAdapterWIG.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull ViewHolderWIG viewHolderWIG, int i) {
+
+        viewHolderWIG.textView.setText(usersingroup.get(i));
 
     }
 
@@ -47,12 +47,12 @@ public class RecyclerViewAdapterWIG extends RecyclerView.Adapter<RecyclerViewAda
         return usersingroup.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolderWIG extends RecyclerView.ViewHolder{
         TextView textView;
         RelativeLayout parentlayout;
 
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolderWIG(@NonNull View itemView) {
             super(itemView);
 
             textView = itemView.findViewById(R.id.RCVWhoisn);

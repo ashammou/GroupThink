@@ -42,7 +42,7 @@ public class MeetingLayout extends Activity implements View.OnClickListener {
         meetingNameText = findViewById(R.id.meetingNameText);
         textViewShowTime = findViewById(R.id.textViewShowTime);
         textViewShowLoction = findViewById(R.id.textViewShowLoction);
-        textViewShowMember = findViewById(R.id.textViewShowMember);
+
         meetingNameText.setText(currentMeeting);
         membersbutton = findViewById(R.id.membersbutton);
 
@@ -155,6 +155,7 @@ public class MeetingLayout extends Activity implements View.OnClickListener {
 
             Intent intent = new Intent(MeetingLayout.this, WhosInGroup.class);
             intent.putExtra("groupnameMT", currentGroup);
+            intent.putExtra("meetingnameMT", currentMeeting);
             startActivity(intent);
 
 
