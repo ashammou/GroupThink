@@ -73,8 +73,8 @@
 
     <TextView
         android:id="@+id/textViewCreatedMeetingName"
-        android:layout_width="94dp"
-        android:layout_height="31dp"
+        android:layout_width="165dp"
+        android:layout_height="34dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="12dp"
@@ -97,6 +97,7 @@
         android:layout_marginTop="-3dp"
         android:background="@drawable/edit_text_layout"
 
+        android:gravity="center_vertical|center_horizontal"
         android:hint="e.g. Introduction "
         android:inputType="textPersonName"
         android:textStyle="bold" />
@@ -111,6 +112,7 @@
         android:layout_marginRight="-92dp"
         android:background="@drawable/edit_text_layout"
         android:ems="10"
+        android:gravity="center_vertical|center_horizontal"
         android:hint="00:00"
         android:inputType="time"
         android:text=""
@@ -129,10 +131,10 @@
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/edit_text_layout"
-        android:hint="explain your agenda"
+        android:gravity="center_vertical|center_horizontal"
+        android:hint="Explain your agenda"
         android:inputType="textPersonName"
-        android:textSize="12sp"
-        android:textStyle="bold|italic" />
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/imageView4"

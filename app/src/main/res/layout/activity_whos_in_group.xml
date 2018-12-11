@@ -21,14 +21,20 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerviewWhosIn"
-        android:layout_width="355dp"
+        android:layout_width="wrap_content"
         android:layout_height="429dp"
+        android:layout_below="@+id/whoaddPeople"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginBottom="0dp" />
+        android:layout_marginStart="13dp"
+        android:layout_marginLeft="13dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="1dp" />
 
     <EditText
         android:id="@+id/whoaddPeople"

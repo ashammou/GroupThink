@@ -6,10 +6,15 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -78,6 +83,30 @@ public class AgendaCreation extends Activity implements View.OnClickListener{
         editTextItemTitle.setText("");
         editTextNotes.setText("");
         editTextTimeACreation.setText("");
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater optionsMenuInflater = getMenuInflater();
+        optionsMenuInflater.inflate(R.menu.dropdown_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menuitemGroupSelection:
+                Intent intent1 = new Intent(AgendaCreation.this, GroupOverview.class);
+                startActivity(intent1);
+            case R.id.menuitemLogout:
+                Intent intent2 = new Intent(AgendaCreation.this, MainActivity.class);
+                FirebaseAuth.getInstance().signOut();
+                startActivity(intent2);
+                return true;
+
+            default:
+                return false;
+        }
     }
 
     @Override

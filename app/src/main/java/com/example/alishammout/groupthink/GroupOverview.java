@@ -59,7 +59,6 @@ public class GroupOverview extends Activity implements View.OnClickListener {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     for (DataSnapshot snapshot2 : snapshot.child("usersInGroup").getChildren()) {
                         String myUser = snapshot2.getValue(String.class);
-                        //Toast.makeText(GroupOverview.this, "myUser: " + myUser, Toast.LENGTH_SHORT).show();
                         if (mauth.getCurrentUser().getEmail().equals(myUser)) {
                             groupsForUser.add(snapshot.getKey());
                         }

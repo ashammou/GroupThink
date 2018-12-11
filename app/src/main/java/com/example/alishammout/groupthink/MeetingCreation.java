@@ -3,12 +3,16 @@ package com.example.alishammout.groupthink;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -34,8 +38,31 @@ public class MeetingCreation extends Activity implements View.OnClickListener{
 
         buttonAddAgenda.setOnClickListener(this);
 
-        Toast.makeText(MeetingCreation.this, passedGroup, Toast.LENGTH_SHORT).show();
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater optionsMenuInflater = getMenuInflater();
+        optionsMenuInflater.inflate(R.menu.dropdown_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menuitemGroupSelection:
+                Intent intent1 = new Intent(MeetingCreation.this, GroupOverview.class);
+                startActivity(intent1);
+            case R.id.menuitemLogout:
+                Intent intent2 = new Intent(MeetingCreation.this, MainActivity.class);
+                FirebaseAuth.getInstance().signOut();
+                startActivity(intent2);
+                return true;
+
+            default:
+                return false;
+        }
     }
 
     @Override
