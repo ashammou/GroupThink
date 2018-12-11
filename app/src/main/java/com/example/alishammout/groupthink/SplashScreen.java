@@ -15,7 +15,7 @@ public class SplashScreen extends Activity {
         setContentView(R.layout.activity_splash_screen);
 
         ImageView myImageView = findViewById(R.id.logo1);
-        myImageView.setImageResource(R.drawable.groupthinklogo);
+        myImageView.setImageResource(R.drawable.finallogogroupthink);
 
         new java.util.Timer().schedule(
                 new java.util.TimerTask() {

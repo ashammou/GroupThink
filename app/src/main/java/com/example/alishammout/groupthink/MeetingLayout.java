@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -30,6 +31,7 @@ public class MeetingLayout extends Activity implements View.OnClickListener {
     private ArrayList<AgendaItemsClass> wholeAgenda = new ArrayList<>();
     private ArrayList<String> Members = new ArrayList<>();
     private MeetingClass currentMeetingClass = new MeetingClass();
+    private String location, time;
     private Button membersbutton;
     private Button backButton;
 
@@ -61,12 +63,14 @@ public class MeetingLayout extends Activity implements View.OnClickListener {
         DatabaseReference myRef = database.getReference(currentGroup);
 
         //updates Time and Location
-        myRef.child("meetings").child(currentMeeting).addValueEventListener(new ValueEventListener() {
+        myRef.child("meetings").child(currentMeeting).child("locationL").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                currentMeetingClass = dataSnapshot.getValue(MeetingClass.class);
-                textViewShowTime.setText(currentMeetingClass.getStarttimeL());
-                textViewShowLoction.setText(currentMeetingClass.getLocationL());
+                location = dataSnapshot.getValue(String.class);
+                textViewShowLoction.setText(location, TextView.BufferType.EDITABLE);
+
+
+
             }
 
             @Override
@@ -74,6 +78,26 @@ public class MeetingLayout extends Activity implements View.OnClickListener {
 
             }
         });
+
+
+        myRef.child("meetings").child(currentMeeting).child("starttimeL").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                time = dataSnapshot.getValue(String.class);
+                textViewShowTime.setText(time, TextView.BufferType.EDITABLE);
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+
 
         //updates Member List
         //still needs to display the Array

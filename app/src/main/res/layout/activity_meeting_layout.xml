@@ -7,13 +7,6 @@
     android:background="@color/colorscheme1B"
     tools:context=".MeetingLayout">
 
-    <View
-        android:id="@+id/divider4"
-        android:layout_width="match_parent"
-        android:layout_below="@id/meetingNameText"
-        android:layout_height="1dp"
-        android:background="?android:attr/listDivider" />
-
     <TextView
         android:id="@+id/meetingNameText"
         android:layout_width="190dp"
@@ -22,7 +15,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="15dp"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="13dp"
         android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginBottom="15dp"
@@ -36,29 +29,19 @@
         android:textStyle="bold"
         tools:text="Meeting Name Here" />
 
-    <View
-        android:id="@+id/divider"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_below="@id/tableMeetingLayout"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginTop="37dp"
-        android:background="?android:attr/listDivider" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerViewMeetingLayout"
-        android:layout_width="338dp"
-        android:layout_height="386dp"
-        android:layout_below="@id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="403dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="18dp" />
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="163dp" />
 
 
-    <TableLayout
+<!--    <TableLayout
         android:id="@+id/tableMeetingLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -69,99 +52,103 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_weight="1">-->
 
-            <TextView
-                android:id="@+id/textViewTTime"
-                android:layout_width="95dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/edit_text_layout"
-                android:gravity="center_vertical|center_horizontal"
-                android:shadowColor="#000000"
-                android:shadowDx="0"
-                android:shadowDy="0"
-                android:shadowRadius="0"
-                android:text="Time:"
-                android:textStyle="bold" />
+    <TextView
+        android:id="@+id/textViewTTime"
+        android:layout_width="81dp"
+        android:layout_height="27dp"
+        android:layout_alignTop="@+id/textViewShowTime"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="-1dp"
+        android:background="@drawable/edit_text_layout"
+        android:gravity="center_vertical|center_horizontal"
+        android:shadowColor="#000000"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="0"
+        android:text="Time:"
+        android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/textViewShowTime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="Time here"
-                android:textStyle="bold" />
+    <TextView
+        android:id="@+id/textViewShowTime"
+        android:layout_width="270dp"
+        android:layout_height="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="58dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginRight="9dp"
+        android:background="@drawable/edit_text_layout"
+        android:gravity="center_vertical|center_horizontal"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
-        </TableRow>
+   <!--     </TableRow>-->
 
-        <TableRow
+        <!--<TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_weight="1">-->
 
-            <TextView
-                android:id="@+id/textViewTLocation"
-                android:layout_width="83dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/edit_text_layout"
-                android:gravity="center_vertical|center_horizontal"
-                android:shadowColor="#000000"
-                android:shadowDx="0"
-                android:shadowDy="0"
-                android:shadowRadius="0"
-                android:text="Location:"
-                android:textStyle="bold" />
+    <TextView
+        android:id="@+id/textViewTLocation"
+        android:layout_width="82dp"
+        android:layout_height="29dp"
+        android:layout_below="@+id/textViewShowTime"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="-1dp"
+        android:background="@drawable/edit_text_layout"
+        android:gravity="center_vertical|center_horizontal"
+        android:shadowColor="#000000"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="0"
+        android:text="Location:"
+        android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/textViewShowLoction"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="Location here"
-                android:textStyle="bold" />
+    <TextView
+        android:id="@+id/textViewShowLoction"
+        android:layout_width="270dp"
+        android:layout_height="29dp"
+        android:layout_below="@+id/textViewShowTime"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginRight="9dp"
+        android:background="@drawable/edit_text_layout"
+        android:gravity="center_vertical|center_horizontal"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
-        </TableRow>
+        <!--</TableRow>-->
 
-    </TableLayout>
-
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="49dp"
-        android:layout_height="33dp"
-        android:layout_alignBottom="@+id/meetingNameText"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginStart="6dp"
-        android:layout_marginLeft="6dp"
-        android:layout_marginBottom="9dp"
-        android:src="@drawable/glogo" />
+  <!--  </TableLayout>-->
 
     <Button
         android:id="@+id/membersbutton"
-        android:layout_width="87dp"
-        android:layout_height="40dp"
-        android:layout_alignStart="@+id/imageView7"
-        android:layout_alignLeft="@+id/imageView7"
+        android:layout_width="157dp"
+        android:layout_height="33dp"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="143dp"
-        android:layout_marginLeft="143dp"
-        android:layout_marginTop="118dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="124dp"
         android:background="@drawable/button_background"
-        android:text="Members"
+        android:text="Add Members"
         android:textAllCaps="false" />
 
     <Button
         android:id="@+id/backButton"
         android:layout_width="66dp"
         android:layout_height="38dp"
-        android:layout_alignStart="@+id/imageView7"
-        android:layout_alignLeft="@+id/imageView7"
         android:layout_alignParentTop="true"
         android:layout_marginStart="307dp"
         android:layout_marginLeft="307dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="11dp"
         android:background="@drawable/button_background"
         android:text="Back"
         android:textAllCaps="false" />
