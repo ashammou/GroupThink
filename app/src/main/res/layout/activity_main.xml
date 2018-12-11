@@ -23,17 +23,6 @@
         android:text="Login"
         android:textStyle="bold" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="203dp"
-        android:layout_height="155dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp"
-        android:src="@drawable/groupthinklogo"
-        tools:layout_editor_absoluteX="91dp"
-        tools:layout_editor_absoluteY="0dp" />
-
     <EditText
         android:id="@+id/login"
         android:layout_width="268dp"
@@ -70,6 +59,18 @@
         android:layout_below="@id/login"
         android:hint="Password"
         android:inputType="textPassword" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="211dp"
+        android:layout_height="199dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/finallogogroupthink" />
 
 
 </RelativeLayout>
