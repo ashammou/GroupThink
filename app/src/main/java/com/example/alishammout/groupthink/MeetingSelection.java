@@ -32,6 +32,7 @@ public class MeetingSelection extends Activity implements View.OnClickListener {
     private ArrayList<String> meetingsIngroup= new ArrayList<>();
     private String passedGroup;
     private RecyclerViewAdapterMeetingSelection recyclerViewAdapterMeetingSelection;
+    private Button backButton;
 
 
     @Override
@@ -43,7 +44,10 @@ public class MeetingSelection extends Activity implements View.OnClickListener {
         groupNameText.setText(passedGroup);
 
         buttonAddMeeting = findViewById(R.id.AddMeeting);
+        backButton = findViewById(R.id.backButton);
+
         buttonAddMeeting.setOnClickListener(this);
+        backButton.setOnClickListener(this);
 
         getMeetings();
         initializeRecyclerView();
@@ -111,6 +115,10 @@ public class MeetingSelection extends Activity implements View.OnClickListener {
         if (view == buttonAddMeeting) {
             Intent intent  = new Intent(MeetingSelection.this, MeetingCreation.class);
             intent.putExtra("passed_group1", passedGroup);
+            startActivity(intent);
+        }
+        else {
+            Intent intent = new Intent(MeetingSelection.this, GroupOverview.class);
             startActivity(intent);
         }
 

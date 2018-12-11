@@ -80,6 +80,8 @@ public class   AddGroup extends Activity implements View.OnClickListener {
             case R.id.menuitemGroupSelection:
                 Intent intent1 = new Intent(AddGroup.this, GroupOverview.class);
                 startActivity(intent1);
+                return true;
+
             case R.id.menuitemLogout:
                 Intent intent2 = new Intent(AddGroup.this, MainActivity.class);
                 FirebaseAuth.getInstance().signOut();
@@ -87,7 +89,7 @@ public class   AddGroup extends Activity implements View.OnClickListener {
                 return true;
 
             default:
-                return false;
+                return true;
         }
     }
 

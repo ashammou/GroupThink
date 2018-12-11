@@ -152,4 +152,18 @@
         android:text="Members"
         android:textAllCaps="false" />
 
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="66dp"
+        android:layout_height="38dp"
+        android:layout_alignStart="@+id/imageView7"
+        android:layout_alignLeft="@+id/imageView7"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="307dp"
+        android:layout_marginLeft="307dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/button_background"
+        android:text="Back"
+        android:textAllCaps="false" />
+
 </RelativeLayout>

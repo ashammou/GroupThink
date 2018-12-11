@@ -45,12 +45,29 @@
         android:text="Add Meeting"
         android:textStyle="bold" />
 
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="53dp"
+        android:layout_height="33dp"
+        android:layout_below="@id/divider3"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="-44dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/button_background"
+        android:shadowColor="#000000"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="0"
+        android:text="Back"
+        android:textStyle="bold" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/meetingRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/AddMeeting" />
+        android:layout_below="@id/AddMeeting"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="0dp" />
 
     <ImageView
         android:id="@+id/imageView8"
